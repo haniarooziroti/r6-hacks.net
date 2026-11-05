@@ -33,7 +33,7 @@ export const en: Translations = {
   hero: {
     status: 'Rainbow Six Siege — PC modules online',
     eyebrow: 'Rainbow Six Siege on PC',
-    titleLine1: 'Rainbow Six Siege',
+    titleLine1: 'R6 Hacks — Rainbow Six Siege',
     titleLine2: 'ESP, aimbot & wallhack',
     subtitle:
       'Tactical overlays, tuned aim assist, and operator ESP that stay readable in ranked—explore modules, compare settings in the forums, and shape your PC sessions without turning the HUD into noise.',
@@ -63,7 +63,7 @@ export const en: Translations = {
           'Team and downed player filters',
           'Distance caps per playlist',
         ],
-        tags: ['mw4 aimbot', 'aim assist', 'fov circle'],
+        tags: ['r6 aimbot', 'aim assist', 'fov circle'],
         bento: 'sm:col-span-2 lg:col-span-12 lg:col-start-1 lg:row-start-1',
       },
       {
@@ -71,7 +71,7 @@ export const en: Translations = {
         subtitle: 'Boxes that stay readable',
         desc: 'Health, armor plates, skeleton, and weapon labels without turning the HUD into noise.',
         bullets: ['Corner or full box styles', 'Squad color coding', 'Distance slider', 'Soft-cover color option'],
-        tags: ['mw4 esp', 'wallhack', 'player esp'],
+        tags: ['r6 esp', 'wallhack', 'player esp'],
         bento: 'sm:col-span-2 lg:col-span-8 lg:col-start-1 lg:row-start-2',
       },
       {
@@ -79,7 +79,7 @@ export const en: Translations = {
         subtitle: 'Lane awareness',
         desc: 'Operator markers with zoom and range that mirror your ESP distance cap.',
         bullets: ['Compact overlay placement', 'Zoom for Ground War', 'Shared color logic with ESP'],
-        tags: ['mw4 radar', 'ground war', 'map awareness'],
+        tags: ['r6 radar', 'ranked', 'map awareness'],
         bento: 'sm:col-span-2 lg:col-span-6 lg:col-start-1 lg:row-start-3',
       },
       {
@@ -87,7 +87,7 @@ export const en: Translations = {
         subtitle: 'Confirm your shots',
         desc: 'Optional fire-on-target with delay tuning and the same wall checks as aim assist.',
         bullets: ['Hold key binding', 'Head or chest priority', 'Humanized delay slider'],
-        tags: ['mw4 triggerbot', 'trigger', 'gunfight'],
+        tags: ['r6 triggerbot', 'trigger', 'gunfight'],
         bento: 'sm:col-span-2 lg:col-span-6 lg:col-start-7 lg:row-start-3',
       },
       {
@@ -95,7 +95,7 @@ export const en: Translations = {
         subtitle: 'Routing in Hajin',
         desc: 'Contracts, extracts, cash, and vehicles for DMZ—automatically off when you queue 6v6.',
         bullets: ['Contract and extract highlights', 'Cash and bag ESP', 'Vehicle markers on roads'],
-        tags: ['mw4 dmz', 'loot esp', 'contracts'],
+        tags: ['r6 gadget esp', 'claymore', 'drones'],
         bento: 'sm:col-span-2 lg:col-span-8 lg:row-span-2 lg:col-start-1 lg:row-start-4',
       },
       {
@@ -103,7 +103,7 @@ export const en: Translations = {
         subtitle: 'Recoil help & stream mode',
         desc: 'Light recoil assist, custom crosshair, dual config slots, and stream-proof overlay for recordings.',
         bullets: ['Separate 6v6 and DMZ profiles', 'Stream-proof for OBS tests', 'Saved config export'],
-        tags: ['no recoil', 'stream proof', 'mw4 config'],
+        tags: ['no recoil', 'stream proof', 'r6 config'],
         bento: 'sm:col-span-2 lg:col-span-4 lg:row-span-2 lg:col-start-9 lg:row-start-4',
       },
     ],

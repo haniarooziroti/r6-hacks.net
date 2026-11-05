@@ -330,8 +330,11 @@ html.dark a.nav-link[data-nav-link]:hover .icon-app {
 
   position: relative;
   display: inline-block;
-  width: min(100%, 13.5rem);
-  height: 3rem;
+  width: min(100%, 100%);
+  max-width: 100%;
+  min-width: 13.5rem;
+  height: auto;
+  min-height: 3rem;
   cursor: pointer;
   overflow: hidden;
   border: 0;
@@ -353,9 +356,11 @@ html.dark a.nav-link[data-nav-link]:hover .icon-app {
   position: absolute;
   top: 0;
   right: 0;
+  bottom: 0;
   display: block;
   width: 3rem;
-  height: 3rem;
+  height: 100%;
+  min-height: 3rem;
   margin: 0;
   border-radius: 1.625rem;
   background: var(--primary);
@@ -390,20 +395,21 @@ html.dark a.nav-link[data-nav-link]:hover .icon-app {
 }
 
 .learn-more-btn__text {
-  position: absolute;
-  inset: 0;
+  position: relative;
   z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 3rem;
   margin: 0;
-  padding: 0 3.25rem 0 1.25rem;
+  padding: 0.65rem 3.25rem 0.65rem 1.25rem;
   color: var(--primary-foreground);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1.25;
   text-align: center;
   text-transform: none;
+  white-space: normal;
   transition: color 0.45s cubic-bezier(0.65, 0, 0.076, 1);
 }
 
@@ -421,16 +427,25 @@ html.dark a.nav-link[data-nav-link]:hover .icon-app {
   color: var(--primary-foreground);
 }
 
-/* Slide-reveal CTA (icon on right, expands from right on hover) */
+.product-checkout-buy {
+  line-height: 1.35;
+}
+
+.product-checkout-buy .icon-app {
+  flex-shrink: 0;
+}
+
 .slide-reveal-btn {
   --slide-reveal-icon: 2.25rem;
 
   position: relative;
-  height: var(--slide-reveal-icon);
+  min-height: var(--slide-reveal-icon);
+  height: auto;
   min-width: 9.375rem;
+  max-width: 100%;
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
+  justify-content: flex-start;
   overflow: hidden;
   border-radius: var(--radius-md);
   border: 1px solid color-mix(in oklch, var(--primary) 82%, black);
@@ -451,13 +466,17 @@ html.dark a.nav-link[data-nav-link]:hover .icon-app {
 
 .slide-reveal-btn__text {
   z-index: 1;
-  width: 100%;
-  padding-inline: 0.75rem calc(var(--slide-reveal-icon) + 0.35rem);
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem calc(var(--slide-reveal-icon) + 0.35rem) 0.5rem 0.75rem;
   font-size: 0.875rem;
-  line-height: 1;
+  line-height: 1.25;
   text-align: center;
+  white-space: normal;
   color: var(--primary-foreground);
-  transform: translateX(-0.35rem);
+  transform: none;
   transition:
     color 0.3s ease,
     transform 0.3s ease;

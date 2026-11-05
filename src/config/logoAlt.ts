@@ -5,7 +5,7 @@ import { getBlogPostSeo } from './blogSeo';
 const LOGO_ALT_BY_PATH: Record<string, string> = {
   '/': 'Aimbot – logo',
   '/cheats/': 'Blog – Aimbot – logo',
-  '/forums/': 'Mw4 Cheats Forum – Aimbot – logo',
+  '/forums/': 'R6 community forum – logo',
   '/reviews/': 'Reviews – Aimbot – logo',
   '/faq/': 'Faq – Aimbot – logo',
   '/support/': 'Support – Aimbot – logo',

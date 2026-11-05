@@ -22,8 +22,8 @@ const categoryKey = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, '
       <header class="forum-hero">
         <div>
           <p class="section-header__eyebrow">R6 PC community</p>
-          <h1>Rainbow Six Siege cheats forum for config & checkout talk</h1>
-          <p class="forum-hero__copy">Aim tuning, ESP layouts, DMZ routing, checkout questions, and honest player experiences. This mw4 cheats forum is indexed for search—bookmark threads you want to revisit after patches.</p>
+          <h1>R6 hacks forum for Rainbow Six Siege config & checkout talk</h1>
+          <p class="forum-hero__copy">Aim tuning, ESP layouts, ranked routing, checkout questions, and honest player experiences. This R6 PC community forum is indexed for search—bookmark threads you want to revisit after patches.</p>
           <p class="forum-hero__copy mt-2">New here? Read setup threads before you change defaults, then compare modules on the product hub.</p>
         </div>
         <a class="forum-create" href="/products/rainbow-six-cheats/"><Icon name="package" size={17} /> Open R6 module comparison hub</a>
@@ -62,7 +62,7 @@ const categoryKey = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, '
                 <div class="forum-post-card__body">
                   <div class="forum-post-meta">
                     <span class={`forum-community-avatar tone-${post.categoryTone}`}><Icon name="users" size={15} /></span>
-                    <span class="forum-community-name">mw4/{post.category.toLowerCase().replaceAll(' ', '')}</span>
+                    <span class="forum-community-name">r6/{post.category.toLowerCase().replaceAll(' ', '')}</span>
                     <span>·</span><span><Icon name="userRound" size={13} /> u/{post.author}</span><span>·</span><span>{post.age}</span>
                   </div>
                   <a class="forum-post-title" href={`/forums/${post.slug}/`}>{post.title}</a>
@@ -84,7 +84,7 @@ const categoryKey = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, '
           <section class="forum-side-card forum-about" id="community-guidelines">
             <div class="forum-side-card__banner"></div>
             <div class="forum-about__content">
-              <div class="forum-about__title"><span class="forum-community-avatar forum-community-avatar--brand"><img src="/logo.svg" alt="Mw4 Cheats Forum – Aimbot – logo" width="34" height="34" /></span><h2>Mw4 Cheats Forum: R6 Siege Cheats</h2></div>
+              <div class="forum-about__title"><span class="forum-community-avatar forum-community-avatar--brand"><img src="/logo.svg" alt="R6 community forum logo" width="34" height="34" /></span><h2>R6 Siege community forum</h2></div>
               <p>Swap configs, compare aim settings, and read mixed experiences before you buy access.</p>
               <div class="forum-stats"><span><b>{forumPosts.length}</b> threads</span><span><b>{forumCategories.length}</b> topics</span></div>
               <a class="forum-join" href="/products/rainbow-six-cheats/">Forum sidebar — R6 modules</a>

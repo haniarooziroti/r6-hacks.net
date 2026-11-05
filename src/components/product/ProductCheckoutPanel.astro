@@ -76,7 +76,7 @@ const isSinglePlan = plans.length === 1;
         href={checkoutUrlWithPlan(product.buyUrl, defaultPlan.id)}
         variant="primary"
         size="lg"
-        class="w-full rounded-xl"
+        class="product-checkout-buy w-full rounded-xl !h-auto min-h-12 py-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center leading-snug whitespace-normal"
         data-checkout-buy
       >
         {productPanelCheckoutLabel(product.title)}

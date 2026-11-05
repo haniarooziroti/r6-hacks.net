@@ -48,9 +48,9 @@
 .forum-side-card { overflow:hidden; border:1px solid var(--border); border-radius:var(--radius-xl); background:color-mix(in oklch,var(--card) 96%,transparent); }
 .forum-side-card__banner { height:3.3rem; background:linear-gradient(105deg,#45236b,#7f3dee 55%,#3c255d); }
 .forum-about__content { padding:0 1rem 1rem; }
-.forum-about__title { display:flex; align-items:center; gap:.55rem; margin-top:-.85rem; }
+.forum-about__title { display:flex; align-items:flex-start; gap:.55rem; margin-top:-.85rem; }
 .forum-about__title .forum-community-avatar { width:2.6rem; height:2.6rem; border:3px solid var(--card); font-size:1.2rem; }
-.forum-about__title h2 { margin:.85rem 0 0; font-size:.95rem; font-weight:800; letter-spacing:0; }
+.forum-about__title h2 { margin:0; padding-top:.15rem; font-size:.95rem; font-weight:800; letter-spacing:0; line-height:1.3; flex:1; min-width:0; }
 .forum-about__content>p { margin:.65rem 0 .9rem; color:var(--muted-foreground); font-size:.75rem; line-height:1.55; }
 .forum-stats { display:flex; gap:1rem; padding:.75rem 0; border-top:1px solid var(--border); color:var(--muted-foreground); font-size:.65rem; }
 .forum-stats span { display:flex; align-items:center; gap:.27rem; }.forum-stats b { color:var(--foreground); }
@@ -258,7 +258,7 @@
 .forum-vote__up:hover:not(:disabled) { color:var(--primary); background:color-mix(in oklch,var(--primary) 12%,transparent); }
 .forum-community-avatar--brand { width:2.6rem; height:2.6rem; border:1px solid var(--border); background:var(--card); overflow:hidden; }
 .forum-community-avatar--brand img { display:block; width:100%; height:100%; border-radius:inherit; object-fit:cover; }
-.forum-hero h1 { white-space:nowrap; font-size:clamp(1.55rem,3.5vw,2.75rem); }
+.forum-hero h1 { white-space:normal; font-size:clamp(1.55rem,3.5vw,2.75rem); line-height:1.08; }
 @media(max-width:520px) { .forum-hero h1 { font-size:clamp(1.3rem,6vw,1.65rem); } }
 .forum-results-count { margin:0 0 .45rem; color:var(--muted-foreground); font-size:.68rem; }
 @media(max-width:700px) { .forum-toolbar { flex-wrap:wrap; gap:.55rem; }.forum-search { order:2; width:100%; }.forum-sort { max-width:100%; overflow-x:auto; }.forum-sort button { flex:0 0 auto; white-space:nowrap; } }

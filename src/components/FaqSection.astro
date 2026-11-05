@@ -24,8 +24,6 @@ interface Props {
   class?: string;
   showHeader?: boolean;
   headingLevel?: 'h1' | 'h2';
-  /** Full FAQ page: sort by topic and emit an h2 per topic group (chip labels). */
-  groupByTopic?: boolean;
 }
 
 const {
@@ -42,7 +40,6 @@ const {
   class: className,
   showHeader = true,
   headingLevel = 'h2',
-  groupByTopic = false,
 } = Astro.props;
 
 const topicLabels: Record<FaqTopic, string> = {
@@ -56,15 +53,6 @@ const topicLabels: Record<FaqTopic, string> = {
 };
 
 const filters = filterTopics ?? (['all', 'plans', 'esp', 'aim', 'safety', 'products'] as FaqTopic[]);
-
-const topicOrder = filters.filter((t) => t !== 'all');
-const displayItems = groupByTopic
-  ? [...items].sort(
-      (a, b) =>
-        (topicOrder.indexOf(a.topic) === -1 ? 999 : topicOrder.indexOf(a.topic)) -
-        (topicOrder.indexOf(b.topic) === -1 ? 999 : topicOrder.indexOf(b.topic)),
-    )
-  : items;
 ---
 
 <section
@@ -112,30 +100,21 @@ const displayItems = groupByTopic
     }
 
     <Accordion type="single" collapsible class="mt-8 w-full" data-faq-list>
-      {displayItems.map((faq, i) => {
-        const showTopicHeading =
-          groupByTopic && (i === 0 || displayItems[i - 1].topic !== faq.topic);
-        return (
-          <>
-            {showTopicHeading ? (
-              <h2 class="section-header__title mt-10 mb-1 first:mt-0">{topicLabels[faq.topic]}</h2>
-            ) : null}
-            <div data-faq-topic={faq.topic}>
-              <AccordionItem value={`faq-${i}`}>
-                <AccordionTrigger class="text-left">
-                  <span class="flex items-center gap-2">
-                    <Icon name={faq.icon} size={16} class="shrink-0" />
-                    <span>{faq.q}</span>
-                  </span>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div class="prose prose-sm dark:prose-invert max-w-none text-muted-foreground" set:html={faq.aHtml ?? faq.a} />
-                </AccordionContent>
-              </AccordionItem>
-            </div>
-          </>
-        );
-      })}
+      {items.map((faq, i) => (
+        <div data-faq-topic={faq.topic}>
+          <AccordionItem value={`faq-${i}`}>
+            <AccordionTrigger class="text-left">
+              <span class="flex items-center gap-2">
+                <Icon name={faq.icon} size={16} class="shrink-0" />
+                <span>{faq.q}</span>
+              </span>
+            </AccordionTrigger>
+            <AccordionContent>
+              <div class="prose prose-sm dark:prose-invert max-w-none text-muted-foreground" set:html={faq.aHtml ?? faq.a} />
+            </AccordionContent>
+          </AccordionItem>
+        </div>
+      ))}
     </Accordion>
     </div>
   </div>
