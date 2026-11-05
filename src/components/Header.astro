@@ -81,19 +81,7 @@ const { logoAlt = 'Aimbot – logo' } = Astro.props;
           <SheetHeader>
             <SheetTitle>{t.site.name}</SheetTitle>
           </SheetHeader>
-          <nav class="flex flex-col gap-1" aria-label="Mobile">
-            {t.nav.map((link) => (
-              <a
-                href={link.href}
-                class="nav-link flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
-                data-nav-link
-                {...(link.scrollTarget ? { 'data-scroll-target': link.scrollTarget } : {})}
-              >
-                <Icon name={navIcons[link.label] ?? 'navFeatures'} size={16} />
-                {MOBILE_NAV_LABEL[link.label] ?? link.label}
-              </a>
-            ))}
-          </nav>
+          <div data-mobile-nav-mount class="contents"></div>
           <Button as="a" href={purchaseUrl} variant="primary" class="w-full justify-center" aria-label={t.ui.checkoutAria}>
             {t.ui.browseCheatsMobile}
           </Button>
@@ -105,4 +93,34 @@ const { logoAlt = 'Aimbot – logo' } = Astro.props;
     </div>
     </div>
   </div>
+
+  <template id="mobile-primary-nav-template">
+    <nav class="flex flex-col gap-1" aria-label="Mobile">
+      {t.nav.map((link) => (
+        <a
+          href={link.href}
+          class="nav-link flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
+          data-nav-link
+          {...(link.scrollTarget ? { 'data-scroll-target': link.scrollTarget } : {})}
+        >
+          <Icon name={navIcons[link.label] ?? 'navFeatures'} size={16} />
+          {MOBILE_NAV_LABEL[link.label] ?? link.label}
+        </a>
+      ))}
+    </nav>
+  </template>
 </header>
+
+<script>
+  function mountMobilePrimaryNav() {
+    const tpl = document.getElementById('mobile-primary-nav-template');
+    const mount = document.querySelector('[data-mobile-nav-mount]');
+    if (!tpl || !mount || mount.dataset.mounted === 'true') return;
+    const nav = tpl.content.querySelector('nav');
+    if (!nav) return;
+    mount.dataset.mounted = 'true';
+    mount.append(nav.cloneNode(true));
+  }
+  mountMobilePrimaryNav();
+  document.addEventListener('astro:page-load', mountMobilePrimaryNav);
+</script>
