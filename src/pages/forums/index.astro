@@ -69,8 +69,8 @@ const categoryKey = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, '
                   <p class="forum-post-excerpt">{post.excerpt}</p>
                   <div class="forum-post-actions">
                     {post.flair && <span class={`forum-flair tone-${post.categoryTone}`}>{post.flair}</span>}
-                    <a href={`/forums/${post.slug}/`}>
-                      <Icon name="messageCircle" size={15} /> {post.commentsCount} replies — {post.title}
+                    <a href={`/forums/${post.slug}/#comments`}>
+                      <Icon name="messageCircle" size={15} /> {post.commentsCount} replies on this thread
                     </a>
                   </div>
                 </div>

@@ -114,7 +114,7 @@ export const forumPosts: ForumPost[] = [
     flair: 'Setup',
     body: ['Secure boot on like the requirements page says. scared to brick first session.'],
     comments: [
-      { author: 'hex_line', age: '1 day ago', score: 38, body: 'Loader before game. Import stock ranked preset, shoot THunt, then tweak.' },
+      { author: 'hex_line', age: '1 day ago', score: 38, body: 'Client before game. Import stock ranked preset, shoot THunt, then tweak.' },
       { author: 'fresh_ubi', age: '23 hours ago', score: 11, body: 'Worked. maybe twelve min total.' },
       { author: 'tired_queue', age: '20 hours ago', score: -1, body: 'HVCI blocked me once. Core isolation toggle fixed it maybe coincidence.' },
     ],

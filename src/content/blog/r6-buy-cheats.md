@@ -1,5 +1,5 @@
 ---
-title: "How to buy R6 access in 2026: checkout to first launch"
+title: "How to buy R6 Siege cheats access in 2026: checkout to first launch"
 description: "Buying R6 access for the first time? Here's how checkout, delivery and first launch work, plus what to check on your PC before you pay."
 category: Guides
 publishDate: 2026-10-05

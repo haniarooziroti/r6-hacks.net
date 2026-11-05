@@ -1,11 +1,11 @@
 /** Unique, descriptive internal link labels for SEO (avoid repeated generic CTAs). */
 
-export function catalogCheckoutLabel(_productName: string): string {
-  return 'Checkout';
+export function catalogCheckoutLabel(productName: string): string {
+  return `Checkout: ${productName}`;
 }
 
-export function catalogDetailsLabel(_productName: string): string {
-  return 'Module details';
+export function catalogDetailsLabel(productName: string): string {
+  return `Details: ${productName}`;
 }
 
 export function productPanelCheckoutLabel(productTitle: string): string {

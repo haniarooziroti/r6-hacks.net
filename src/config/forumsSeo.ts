@@ -11,29 +11,33 @@ export interface ForumThreadSeo {
 
 const FORUM_THREAD_SEO: Record<string, ForumThreadSeo> = {
   'aimbot-settings-smooth-level-ranked': {
-    title: 'Smooth Aim for Ranked Killcams | R6 Siege Cheats',
+    title: 'Smooth FOV Combo for Ranked Killcams | R6 Cheats',
     description:
       'Smooth aim for ranked Rainbow Six Siege—what FOV and smoothing combo stays believable in killcams without looking like a highlight reel?',
     logoAlt: 'Smooth aim – Aimbot – logo',
-    sidebarHeading: 'Smooth aim: R6 Siege Cheats',
-    h1: 'Smooth aim for Siege cheats: what level keeps killcams believable?',
+    sidebarHeading: 'Ranked aim: R6 Siege Cheats',
+    h1: 'Smooth aim for ranked Siege cheats: what level keeps killcams believable?',
     extraBody: [
       'Players usually start with a smaller FOV circle on ARs, then add just enough smoothing that the replay still looks hand-driven.',
       'If tracking through hard cover looks too perfect, drop FOV and smoothing about ten percent and retest in unranked before ranked queues.',
       'Save a ranked profile separate from casual so you can roll back after a patch without rebuilding every slider.',
+      'Compare killcams from both sides of a round—if corrections look stepped or magnetic, lower strength before you touch bone priority again.',
+      'Keep notes on operator and weapon when you change values; a setting that feels fine on an SMG can look obvious on a DMR.',
     ],
   },
   'first-time-loader-r6-siege': {
     title: 'Loader – First R6 Install Order on Win11 | R6 Cheats',
     description:
-      'Key hit inbox fast. BattlEye already running. Loader first or game first on Win11? First Rainbow Six Siege loader install tips from players who finished setup the same day.',
+      'Key hit inbox fast. BattlEye already running. Client first or game first on Win11? First Rainbow Six Siege install tips from players who finished setup the same day.',
     logoAlt: 'Loader – Aimbot – logo',
-    sidebarHeading: 'Loader: R6 Siege Cheats',
-    h1: 'First Rainbow Six Siege loader install for cheats—launch order?',
+    sidebarHeading: 'Setup: R6 Siege Cheats',
+    h1: 'First Rainbow Six Siege loader install for cheats on Win11—launch order?',
     extraBody: [
-      'Most successful first launches run the loader before opening the game, import a stock ranked preset, then warm up in Terrorist Hunt before ranked.',
-      'Confirm Secure Boot, TPM, HVCI, and Core Isolation match the requirements page so the loader is not blocked mid-inject.',
+      'Most successful first launches run the install client before opening the game, import a stock ranked preset, then warm up in Terrorist Hunt before ranked.',
+      'Confirm Secure Boot, TPM, HVCI, and Core Isolation match the requirements page so the tool is not blocked mid-inject.',
       'If Windows security features flip after an update, re-check them before opening a support ticket—most first-day failures stop there.',
+      'Keep the delivery email open while you install so you can paste the key without restarting the client mid-setup.',
+      'After a clean launch, save the stock preset under a new name before you change FOV or ESP density.',
     ],
   },
   'triggerbot-delay-ms-r6': {

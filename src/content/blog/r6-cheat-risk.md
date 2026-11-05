@@ -1,5 +1,5 @@
 ---
-title: "Risk and ban exposure: an honest R6 safety guide"
+title: "Risk and ban exposure: an honest R6 Siege cheats safety guide"
 description: "No tool is risk-free. Here's what raises or lowers your chances of trouble in R6, what we can't promise, and why free downloads are a bad bet."
 category: Guides
 publishDate: 2026-10-27

@@ -1,5 +1,5 @@
 ---
-title: "Aim circle size, smoothing and bone choice for R6"
+title: "Aim circle size for R6 Siege cheats: smoothing and bone choice"
 description: "Circle: How to set up R6 aim assist so it helps your tracking without looking like a screen-snap. Starting values for ranked, ranked and gadget utility."
 category: Setup
 publishDate: 2026-10-12
