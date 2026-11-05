@@ -68,15 +68,9 @@ const discordShareAria = footerShare
           target="_blank"
           rel="noopener noreferrer"
           aria-label={shareLinkLabel(item)}
+          title={footerShare ? shareLinkLabel(item) : undefined}
         >
-          {labelSuffix ? (
-            <>
-              <span class="sr-only">{shareLinkLabel(item)}</span>
-              <span aria-hidden="true">{item.name}</span>
-            </>
-          ) : (
-            item.name
-          )}
+          {footerShare ? shareLinkLabel(item) : item.name}
         </a>
       </li>
     ))}
@@ -94,14 +88,7 @@ const discordShareAria = footerShare
         aria-label={discordShareAria}
         title="Copy the link, then paste in Discord"
       >
-        {footerShare ? (
-          <>
-            <span class="sr-only">{discordShareAria}</span>
-            <span aria-hidden="true">Discord</span>
-          </>
-        ) : (
-          'Discord'
-        )}
+        {footerShare ? 'Share this site on Discord' : 'Discord'}
       </a>
     </li>
   </ul>
