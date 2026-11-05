@@ -21,11 +21,14 @@ export const R6_CDN = {
   blogFeaturedB: `${PACK_B}/1793466995758-0n86gr-2.webp`,
 } as const;
 
+const HERO_VIDEO_PACK = `${R6_LIB}/02ab714e-de37-423b-81f2-afd7f7fd8d28`;
+
 export const HERO_VIDEO = {
-  webm: '/videos/r6-hero.webm',
-  mp4: '/videos/r6-hero.mp4',
+  /** CDN MP4 only — no local WebM; keeps the homepage light. */
+  webm: '',
+  mp4: `${HERO_VIDEO_PACK}/1793904035913-gxyi24-day-7-of-rage-cheating-in-rainbow-six-with-5-r6-cheats.mp4`,
   poster: R6_CDN.heroPoster,
-  durationSec: 15,
+  durationSec: 60,
 } as const;
 
 export const GAMEPLAY_STILLS = {

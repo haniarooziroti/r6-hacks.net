@@ -24,7 +24,7 @@ const { webm, mp4, poster } = HERO_VIDEO;
       controlslist="nodownload noplaybackrate noremoteplayback"
     >
       <source src={mp4} type="video/mp4" />
-      <source src={webm} type="video/webm" />
+      {webm ? <source src={webm} type="video/webm" /> : null}
     </video>
 
     <button

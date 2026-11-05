@@ -20,8 +20,10 @@ export function initHeroVideo() {
   if (wrap.dataset.heroVideoReady === 'true') return;
   wrap.dataset.heroVideoReady = 'true';
 
-  const max = Number(wrap.dataset.heroDuration) || video.duration || 15;
-  const clamp = (t: number) => Math.min(Math.max(t, 0), max);
+  const fallbackMax = Number(wrap.dataset.heroDuration) || 15;
+  const getMax = () =>
+    Number.isFinite(video.duration) && video.duration > 0 ? video.duration : fallbackMax;
+  const clamp = (t: number) => Math.min(Math.max(t, 0), getMax());
 
   const play = () => {
     video.play().catch(() => setPlaying(wrap, false));
@@ -45,7 +47,7 @@ export function initHeroVideo() {
   video.addEventListener('pause', () => setPlaying(wrap, false));
 
   video.addEventListener('timeupdate', () => {
-    if (video.currentTime >= max - 0.05) {
+    if (video.currentTime >= getMax() - 0.05) {
       video.pause();
       video.currentTime = 0;
       setPlaying(wrap, false);
