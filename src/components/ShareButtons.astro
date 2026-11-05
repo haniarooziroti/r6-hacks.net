@@ -48,6 +48,13 @@ function shareLinkLabel(item: (typeof links)[number]): string {
   }
   return item.label;
 }
+
+const footerShare = Boolean(labelSuffix);
+const copyLinkLabel = footerShare ? 'Copy site link' : 'Copy link';
+const copyLinkAria = footerShare ? 'Copy link to this site' : 'Copy page link';
+const discordShareAria = footerShare
+  ? 'Share this site on Discord (paste the copied link)'
+  : 'Open Discord to paste this link';
 ---
 
 <div class:list={['share-buttons', className]} data-share-root>
@@ -74,8 +81,8 @@ function shareLinkLabel(item: (typeof links)[number]): string {
       </li>
     ))}
     <li>
-      <button type="button" class="share-buttons__link share-buttons__copy" data-share-copy aria-label="Copy page link">
-        Copy link
+      <button type="button" class="share-buttons__link share-buttons__copy" data-share-copy aria-label={copyLinkAria}>
+        {copyLinkLabel}
       </button>
     </li>
     <li>
@@ -84,10 +91,17 @@ function shareLinkLabel(item: (typeof links)[number]): string {
         class="share-buttons__link"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Open Discord to paste this link"
+        aria-label={discordShareAria}
         title="Copy the link, then paste in Discord"
       >
-        Discord
+        {footerShare ? (
+          <>
+            <span class="sr-only">{discordShareAria}</span>
+            <span aria-hidden="true">Discord</span>
+          </>
+        ) : (
+          'Discord'
+        )}
       </a>
     </li>
   </ul>
