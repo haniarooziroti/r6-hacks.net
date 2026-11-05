@@ -8,6 +8,8 @@ export const SITE_ORIGIN = `https://${t.site.domain}`;
 export function getSiteOrigin(): string {
   const fromEnv = import.meta.env.PUBLIC_SITE_ORIGIN as string | undefined;
   if (fromEnv?.trim()) return fromEnv.trim().replace(/\/$/, '');
+  const fromSite = import.meta.env.SITE as string | undefined;
+  if (fromSite?.trim()) return fromSite.trim().replace(/\/$/, '');
   return SITE_ORIGIN;
 }
 

@@ -1,6 +1,6 @@
 ---
-title: "How to buy R6 cheats in 2026: checkout to first launch"
-description: "Buying R6 cheats for the first time? Here's how checkout, delivery and first launch work, plus what to check on your PC before you pay."
+title: "How to buy R6 access in 2026: checkout to first launch"
+description: "Buying R6 access for the first time? Here's how checkout, delivery and first launch work, plus what to check on your PC before you pay."
 category: Guides
 publishDate: 2026-10-05
 updatedDate: 2026-10-05

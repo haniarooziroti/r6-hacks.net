@@ -17,6 +17,7 @@ const path = `/forums/${post.slug}/`;
 const threadSeo = getForumThreadSeo(post.slug);
 const pageTitle = threadSeo?.title ?? `${post.title} | R6 Siege Cheats`;
 const pageDescription = threadSeo?.description ?? post.excerpt;
+const pageH1 = threadSeo?.h1 ?? post.title;
 const sidebarHeading = threadSeo?.sidebarHeading ?? `r6/${post.category.toLowerCase().replaceAll(' ', '')}`;
 const extraBody = threadSeo?.extraBody ?? [];
 const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Forum', path: '/forums/' }, { name: post.category, path: '/forums/' }, { name: post.title, path }];
@@ -45,7 +46,7 @@ const relatedPosts = [
                 <span class="forum-community-name">r6/{post.category.toLowerCase().replaceAll(' ', '')}</span>
                 <span>·</span><span><Icon name="userRound" size={13} /> u/{post.author}</span><span>·</span><span>{post.age}</span>
               </div>
-              <h1>{post.title}</h1>
+              <h1>{pageH1}</h1>
               {post.flair && <span class={`forum-flair tone-${post.categoryTone}`}>{post.flair}</span>}
               <div class="forum-detail-copy">
                 {post.body.map((paragraph) => <p>{paragraph}</p>)}

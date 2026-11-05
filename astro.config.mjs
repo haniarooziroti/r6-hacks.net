@@ -3,7 +3,9 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import { sitemapSerialize } from './src/config/sitemap.ts';
 
-const siteOrigin = (process.env.PUBLIC_SITE_ORIGIN || 'https://r6hacks.net').replace(/\/$/, '');
+const siteOrigin = (
+  process.env.PUBLIC_SITE_ORIGIN || 'https://r6-hacks-net.hania-rooziroti.workers.dev'
+).replace(/\/$/, '');
 
 export default defineConfig({
   site: siteOrigin,

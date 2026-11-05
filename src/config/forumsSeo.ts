@@ -5,10 +5,50 @@ export interface ForumThreadSeo {
   description: string;
   logoAlt: string;
   sidebarHeading: string;
+  h1?: string;
   extraBody?: string[];
 }
 
 const FORUM_THREAD_SEO: Record<string, ForumThreadSeo> = {
+  'aimbot-settings-smooth-level-ranked': {
+    title: 'Smooth Aim for Ranked Killcams | R6 Siege Cheats',
+    description:
+      'Smooth aim for ranked Rainbow Six Siege—what FOV and smoothing combo stays believable in killcams without looking like a highlight reel?',
+    logoAlt: 'Smooth aim – Aimbot – logo',
+    sidebarHeading: 'Smooth aim: R6 Siege Cheats',
+    h1: 'Smooth aim for Siege cheats: what level keeps killcams believable?',
+    extraBody: [
+      'Players usually start with a smaller FOV circle on ARs, then add just enough smoothing that the replay still looks hand-driven.',
+      'If tracking through hard cover looks too perfect, drop FOV and smoothing about ten percent and retest in unranked before ranked queues.',
+      'Save a ranked profile separate from casual so you can roll back after a patch without rebuilding every slider.',
+    ],
+  },
+  'first-time-loader-r6-siege': {
+    title: 'Loader – First R6 Install Order on Win11 | R6 Cheats',
+    description:
+      'Key hit inbox fast. BattlEye already running. Loader first or game first on Win11? First Rainbow Six Siege loader install tips from players who finished setup the same day.',
+    logoAlt: 'Loader – Aimbot – logo',
+    sidebarHeading: 'Loader: R6 Siege Cheats',
+    h1: 'First Rainbow Six Siege loader install for cheats—launch order?',
+    extraBody: [
+      'Most successful first launches run the loader before opening the game, import a stock ranked preset, then warm up in Terrorist Hunt before ranked.',
+      'Confirm Secure Boot, TPM, HVCI, and Core Isolation match the requirements page so the loader is not blocked mid-inject.',
+      'If Windows security features flip after an update, re-check them before opening a support ticket—most first-day failures stop there.',
+    ],
+  },
+  'triggerbot-delay-ms-r6': {
+    title: 'Triggerbot Delay – Human Ms Timing | R6 Siege Cheats',
+    description:
+      'Triggerbot delay: instant trigger got me reported in unranked twice. What sane delay for AR tap and burst fire still feels human on Rainbow Six Siege?',
+    logoAlt: 'Triggerbot delay – Aimbot – logo',
+    sidebarHeading: 'Triggerbot delay: R6 Siege Cheats',
+    h1: 'Triggerbot delay—how many ms feels human on R6 Siege cheats?',
+    extraBody: [
+      'Many AR users land around 55–70ms with a side-mouse hold key, then raise delay slightly if killcams still look instant.',
+      'Keep the hold key ADS-only when flashbangs or utility spam cause accidental shots, and never leave delay at zero for ranked.',
+      'Retest after patches—weapon recoil changes can make an old delay feel too aggressive even if the number did not change.',
+    ],
+  },
   'will-high-aim-smooth-get-me-banned': {
     title: 'Smoothing What Level — R6 6v6 Settings | R6 Siege Cheats',
     description:

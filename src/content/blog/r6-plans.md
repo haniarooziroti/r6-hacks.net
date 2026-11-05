@@ -1,5 +1,5 @@
 ---
-title: "R6 cheats monthly vs lifetime: which one is cheaper for you?"
+title: "R6 monthly vs lifetime: which plan is cheaper for you?"
 description: "$35 a month or $150 once? Here's the break-even math, and the situations where each option makes sense."
 category: Guides
 publishDate: 2026-10-09

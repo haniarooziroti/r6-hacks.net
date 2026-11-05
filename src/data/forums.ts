@@ -43,7 +43,7 @@ export const forumPosts: ForumPost[] = [
     categoryTone: 'blue',
     title: 'Aimbot settings: what smooth level keeps killcams believable?',
     excerpt:
-      'Picking up Rainbow Six Siege aimbot access—what FOV and smooth combo are you running in ranked without looking like a highlight reel?',
+      'Picking up Rainbow Six Siege aimbot access—what FOV and smoothing combo are you running in ranked without looking like a highlight reel?',
     author: 'thatch_main',
     age: 'Oct 2, 2026',
     upvotes: 284,
@@ -75,7 +75,7 @@ export const forumPosts: ForumPost[] = [
             author: 'vault_ops',
             age: '1 hour ago',
             score: 7,
-            body: 'Mushy is usually smooth too high. Drop FOV and smooth ten percent before you rage refund.',
+            body: 'Mushy is usually smoothing too high. Drop FOV and tracking ten percent before you rage refund.',
           },
         ],
       },

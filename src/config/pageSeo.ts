@@ -5,12 +5,12 @@ export interface PageSeoEntry {
 
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
-    title: '[R6] Esp, Aimbot & Wallhack',
+    title: 'Aimbot – Rainbow Six Siege ESP & Wallhack Tools',
     description:
       'Rainbow Six Siege cheats with ESP, aimbot, and wallhack modules for PC ranked. Compare operator overlays, forum configs, and secure checkout at r6hacks.net.',
   },
   '/products/rainbow-six-cheats/': {
-    title: 'Rainbow Six Siege Cheats | Aimbot, ESP & Gadget ESP',
+    title: 'Rainbow Six Siege Cheats | Aimbot, ESP & Gadget',
     description:
       'Rainbow Six Siege cheat modules for PC: aim assist, player ESP, wallhack, gadget ESP, triggerbot, and radar. Pick a module and continue to checkout.',
   },
@@ -45,9 +45,9 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'Compact 2D radar for Rainbow Six Siege with zoom, range caps, and colors matched to your ESP profile.',
   },
   '/cheats/': {
-    title: 'R6 Cheat Guides | Aimbot, ESP & Setup Articles',
+    title: 'Cheats Guides | R6 Aimbot, ESP & Setup Articles',
     description:
-      'Rainbow Six Siege cheat guides covering aimbot tuning, ESP layouts, loader setup, patch-day checks, and checkout tips.',
+      'Rainbow Six Siege cheats guides covering aimbot tuning, ESP layouts, loader setup, patch-day checks, checkout tips, and risk notes for PC.',
   },
   '/forums/': {
     title: 'Rainbow Six Siege Cheats Forum | Config & Checkout Talk',
@@ -60,20 +60,21 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'More than 100 Rainbow Six Siege cheat reviews on aimbot feel, ESP clarity, loader setup, and support response times.',
   },
   '/faq/': {
-    title: 'FAQ | Rainbow Six Siege Cheats & Modules',
+    title: 'Rainbow Six Siege FAQ | Modules, Checkout, Setup',
     description:
-      'Answers on Rainbow Six Siege cheat modules, PC requirements, checkout delivery, config saves, and ranked playlist use.',
+      'Answers on Rainbow Six Siege cheat modules, PC requirements, checkout delivery, config saves, ranked playlist use, and loader steps before you buy.',
   },
   '/terms/': {
     title: 'Terms & Conditions | r6hacks.net',
     description: 'Purchase terms, license use, and refund policy for Rainbow Six Siege cheat access sold through r6hacks.net.',
   },
   '/privacy/': {
-    title: 'Privacy Policy | r6hacks.net',
-    description: 'How r6hacks.net uses analytics, cookies, and contact data when you browse or request support.',
+    title: 'Privacy Policy for Cookies & Support on r6hacks.net',
+    description:
+      'Privacy details for how r6hacks.net uses analytics, cookies, and contact data when you browse pages or request loader and billing support.',
   },
   '/about/': {
-    title: 'About r6hacks.net',
+    title: 'R6hacks Net – What We Publish for Rainbow Six Siege PC',
     description:
       'What we publish for Rainbow Six Siege PC players: module pages, setup articles, forums, and status notes at r6hacks.net.',
   },

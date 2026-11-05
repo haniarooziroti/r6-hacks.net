@@ -1,7 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const SITE_URL = 'https://r6hacks.net';
+const SITE_URL = (
+  process.env.PUBLIC_SITE_ORIGIN ||
+  process.env.SITE_URL ||
+  'https://r6-hacks-net.hania-rooziroti.workers.dev'
+).replace(/\/$/, '');
+
 const root = process.cwd();
 const dist = path.join(root, 'dist');
 const source = path.join(dist, 'sitemap-0.xml');
@@ -12,11 +17,14 @@ if (!fs.existsSync(source)) {
 }
 
 let raw = fs.readFileSync(source, 'utf8');
-raw = raw.replace(/https:\/\/mw4-cheat--org\.hania-rooziroti\.workers\.dev/gi, SITE_URL);
-raw = raw.replace(/<loc>(?!https:\/\/)([^<]+)<\/loc>/g, (_, path) => {
-  const normalized = path.startsWith('/') ? path : `/${path}`;
+
+// Normalize any prior preview/production hosts to the active origin.
+raw = raw.replace(/https:\/\/(?:r6hacks\.net|r6-hacks-net\.hania-rooziroti\.workers\.dev|mw4-cheat--org\.hania-rooziroti\.workers\.dev)/gi, SITE_URL);
+raw = raw.replace(/<loc>(?!https:\/\/)([^<]+)<\/loc>/g, (_, locPath) => {
+  const normalized = locPath.startsWith('/') ? locPath : `/${locPath}`;
   return `<loc>${SITE_URL}${normalized}</loc>`;
 });
+
 const urlCount = (raw.match(/<url>/g) ?? []).length;
 
 if (urlCount === 0) {
@@ -55,4 +63,11 @@ const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 fs.writeFileSync(path.join(dist, 'sitemap-index.xml'), indexXml, 'utf8');
 fs.writeFileSync(path.join(dist, 'sitemap-0.xml'), formatted, 'utf8');
 
-console.log(`Sitemap finalized: ${urlCount} URLs → dist/sitemap.xml`);
+const robots = `User-agent: *
+Allow: /
+
+Sitemap: ${SITE_URL}/sitemap.xml
+`;
+fs.writeFileSync(path.join(dist, 'robots.txt'), robots, 'utf8');
+
+console.log(`Sitemap finalized: ${urlCount} URLs → ${SITE_URL}/sitemap.xml`);

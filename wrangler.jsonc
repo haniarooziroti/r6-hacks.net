@@ -1,11 +1,14 @@
 {
-  "name": "mw4-cheat--org",
+  "name": "r6-hacks-net",
   "compatibility_date": "2026-10-29",
   "assets": {
     "directory": "./dist"
   },
+  "vars": {
+    "PUBLIC_SITE_ORIGIN": "https://r6-hacks-net.hania-rooziroti.workers.dev"
+  },
   "build": {
-    "command": "npm run build",
+    "command": "PUBLIC_SITE_ORIGIN=https://r6-hacks-net.hania-rooziroti.workers.dev npm run build",
     "cwd": "."
   }
 }
