@@ -108,6 +108,25 @@ function bootSite() {
   initInPageScroll();
   initSkipLink();
   initThemeMetaColor();
+
+  const blogEmpty = document.getElementById('blog-empty');
+  if (document.getElementById('blog-grid') && blogEmpty) {
+    import('./blog-index.ts').then(({ initBlogIndexFilters }) => {
+      initBlogIndexFilters(blogEmpty.dataset.message ?? blogEmpty.textContent ?? '');
+    });
+  }
+
+  import('./products-carousel.ts').then(({ setupProductsCarousel }) => {
+    setupProductsCarousel();
+  });
+
+  if (document.querySelector('[data-hero-video]')) {
+    import('./hero-video.ts').then(({ initHeroVideo }) => initHeroVideo());
+  }
+
+  if (document.querySelector('[data-product-gallery]')) {
+    import('./product-gallery.ts').then(({ initProductGalleries }) => initProductGalleries());
+  }
 }
 
 if (document.readyState === 'loading') {

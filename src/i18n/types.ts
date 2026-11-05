@@ -54,6 +54,8 @@ export interface BlogPost {
   image: string;
   desc: string;
   date: string;
+  /** ISO date YYYY-MM-DD for card badges */
+  dateIso?: string;
   readTime: string;
 }
 
@@ -158,13 +160,22 @@ export interface Translations {
     explore: string;
     items: ProductCard[];
   };
+  forumHome: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    viewAll: string;
+  };
   blog: {
     eyebrow: string;
     title: string;
     subtitle: string;
     latestTitle: string;
     latestSubtitle: string;
+    searchLabel: string;
+    searchPlaceholder: string;
     filterAll: string;
+    articlesCountLabel: string;
     sortLabel: string;
     sortNewest: string;
     sortOldest: string;

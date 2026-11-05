@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+const SITE_URL = 'https://r6hacks.net';
 const root = process.cwd();
 const dist = path.join(root, 'dist');
 const source = path.join(dist, 'sitemap-0.xml');
@@ -10,7 +11,12 @@ if (!fs.existsSync(source)) {
   process.exit(1);
 }
 
-const raw = fs.readFileSync(source, 'utf8');
+let raw = fs.readFileSync(source, 'utf8');
+raw = raw.replace(/https:\/\/mw4-cheat--org\.hania-rooziroti\.workers\.dev/gi, SITE_URL);
+raw = raw.replace(/<loc>(?!https:\/\/)([^<]+)<\/loc>/g, (_, path) => {
+  const normalized = path.startsWith('/') ? path : `/${path}`;
+  return `<loc>${SITE_URL}${normalized}</loc>`;
+});
 const urlCount = (raw.match(/<url>/g) ?? []).length;
 
 if (urlCount === 0) {
@@ -41,7 +47,7 @@ fs.writeFileSync(path.join(dist, 'sitemap.xml'), formatted, 'utf8');
 const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>https://dotacheats.com/sitemap.xml</loc>
+    <loc>${SITE_URL}/sitemap.xml</loc>
     <lastmod>${new Date().toISOString().slice(0, 10)}</lastmod>
   </sitemap>
 </sitemapindex>

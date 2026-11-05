@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { Button } from '@/components/starwind/button';
+import { Prose } from '@/components/starwind/prose';
+import { CHECKOUT } from '../../../config/checkout';
+import { resolvePageSeo } from '../../../config/seo';
+import { breadcrumbSchema, organizationSchema, webPageSchema } from '../../../utils/schema';
+import { ROUTES } from '../../../utils/path';
+
+const checkoutUrl = CHECKOUT.r6;
+const seo = resolvePageSeo('/go/r6-siege/');
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Products', path: '/products/rainbow-six-cheats/' },
+  { name: 'Checkout', path: '/go/r6-siege/' },
+];
+---
+
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  jsonLd={[
+    organizationSchema(),
+    webPageSchema({
+      name: 'R6 secure checkout',
+      description: seo.description,
+      url: '/go/r6-siege/',
+    }),
+    breadcrumbSchema(breadcrumbs),
+  ]}
+>
+  <article class="py-8 md:py-12">
+    <div class="mx-auto max-w-3xl px-5">
+      <Breadcrumbs items={breadcrumbs} />
+      <header class="mt-6 space-y-4 text-center">
+        <h1 class="text-3xl font-bold md:text-4xl">Checkout</h1>
+        <p class="text-lg text-muted-foreground">
+          You are one step from R6 module access. This page summarizes what you buy before you continue to our partner
+          payment flow.
+        </p>
+        <Button as="a" href={checkoutUrl} variant="primary" size="lg" rel="noopener">
+          Continue to secure checkout
+        </Button>
+      </header>
+
+      <Prose class="mt-10 max-w-none text-left">
+        <h2>Checkout: R6 Siege Cheats</h2>
+        <h2>What your order includes</h2>
+        <p>
+          Checkout on r6hacks.net routes you to a licensed partner page where you pick monthly or lifetime access for Modern
+          Warfare 4 PC modules. Use the same email for payment and delivery so support can find your license quickly if
+          instructions are delayed.
+        </p>
+        <p>
+          Before you pay, compare <a href="/products/rainbow-six-cheats/">R6 cheat modules</a> for aim assist, player ESP, triggerbot,
+          radar, and Hajin Gadget ESP layers. Each product page lists conservative defaults so you know what loads after purchase.
+        </p>
+
+        <h2>Steps before you pay</h2>
+        <p>
+          First, read the <a href="/faq/">R6 cheat FAQ on compatibility</a>, loader order, and account risk. Second, open the partner
+          payment page and choose the tier that matches your playlists—6v6, Ground War, or DMZ. Third, finish the transaction
+          and follow the delivery email to install on Windows 10 or 11.
+        </p>
+        <p>
+          If payment fails or your key does not arrive within the window shown on the receipt, use{' '}
+          <a href="/support/">R6 loader support email</a>{' '}
+          with your order email and any error text from the loader. We do not store card numbers on r6hacks.net; billing stays on
+          the partner site.
+        </p>
+
+        <h2>After you purchase</h2>
+        <p>
+          Import a starter config, test one private match, then tune aim circle size and ESP density using our{' '}
+          <a href="/cheats/">R6 tuning blog guides</a>. Player <a href="/reviews/">verified R6 reviews</a> and the{' '}
+          <a href="/forums/">R6 community discussion board</a> share realistic settings after patches—check the homepage status note before ranked
+          sessions.
+        </p>
+        <p>
+          Ready to finish? Use the button above to continue to checkout. You can return to{' '}
+          <a href={ROUTES.home}>the R6 cheat homepage</a> any time to verify module status or read patch-day notes.
+        </p>
+
+        <h3>Before you leave</h3>
+        <ul>
+          <li>One license per customer—do not share loader files or keys.</li>
+          <li>Sales are final once payment completes unless law requires otherwise.</li>
+          <li>Third-party tools in multiplayer carry account risk; play at your own discretion.</li>
+        </ul>
+      </Prose>
+
+      <div class="mt-10 flex flex-wrap justify-center gap-3 border-t border-border pt-8">
+        <Button as="a" href={checkoutUrl} variant="primary">
+          Pay on partner checkout page
+        </Button>
+        <Button as="a" href="/products/rainbow-six-cheats/" variant="outline">
+          Review R6 module list
+        </Button>
+        <Button as="a" href="/support/" variant="outline">
+          Email billing support
+        </Button>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

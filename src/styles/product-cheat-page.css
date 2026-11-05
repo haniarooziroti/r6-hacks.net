@@ -160,6 +160,19 @@
   padding-top: 0.75rem;
 }
 
+.catalog-card [data-slot='card-footer'] .btn,
+.catalog-card [data-slot='card-footer'] a {
+  max-width: 100%;
+}
+
+.products-catalog-grid {
+  align-items: stretch;
+}
+
+.products-catalog-grid > * {
+  min-width: 0;
+}
+
 /* Product detail — centered layout at all breakpoints */
 .product-detail .section-header,
 .product-detail .section-header--wide,

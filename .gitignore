@@ -1,7 +1,11 @@
 # build output
 dist/
-# generated types
 .astro/
+.seo-baseline/
+temp/
+
+# legacy / local-only
+NOT-OPTIMISED/
 
 # dependencies
 node_modules/
@@ -22,3 +26,4 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+.vscode/

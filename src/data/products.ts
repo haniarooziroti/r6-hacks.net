@@ -56,524 +56,338 @@ export interface ProductPage {
   relatedBlogSlugs: string[];
 }
 
-/** Guides paired with each product detail page */
 export const productRelatedBlogSlugs: Record<string, string[]> = {
-  lite: ['dota-2-map-hack-setup', 'dota-2-lite-vs-pro', 'dota-2-zoom-hack-guide', 'vac-patch-day-checklist'],
-  pro: [
-    'dota-2-scripts-ranked-mmr',
-    'dota-2-auto-combo-hero-scripts',
-    'dota-2-lite-vs-pro',
-    'dota-2-stream-proof-setup',
-  ],
-  elite: [
-    'dota-2-elite-tier-guide',
-    'dota-2-cheats-features-guide',
-    'dota-2-map-hack-setup',
-    'vac-patch-day-checklist',
-    'how-to-buy-dota-2-cheats-2026',
-  ],
-  'hwid-spoofer': [
-    'dota-2-hwid-spoofer-after-ban',
-    'valve-anti-cheat-unable-to-verify',
-    'vac-patch-day-checklist',
-    'dota-2-external-cheat-guide',
-  ],
-  ugc: [
-    'valve-anti-cheat-unable-to-verify',
-    'dota-2-hwid-spoofer-after-ban',
-    'how-to-buy-dota-2-cheats-2026',
-  ],
-  'unlock-all': [
-    'dota-2-skin-changer-guide',
-    'dota-2-cheats-features-guide',
-    'dota-2-stream-proof-setup',
-  ],
+  aimbot: ['r6-aimbot-setup', 'r6-cheat-risk', 'r6-features'],
+  esp: ['r6-esp-setup', 'r6-features', 'r6-wallhack-guide'],
+  wallhack: ['r6-wallhack-guide', 'r6-esp-setup', 'r6-features'],
+  triggerbot: ['r6-triggerbot-guide', 'r6-aimbot-setup', 'r6-features'],
+  radar: ['r6-esp-setup', 'r6-patch-day', 'r6-features'],
+  'gadget-esp': ['r6-gadget-esp-guide', 'r6-plans', 'r6-features'],
 };
 
-const productBase = '/products/dota-2-cheats/';
+import { GAMEPLAY_STILLS } from '../config/media';
 
-const defaultAcquisitionSteps: AcquisitionStep[] = [
+const productBase = '/products/rainbow-six-cheats/';
+
+const sharedAcquisition: AcquisitionStep[] = [
   {
     num: '01',
-    title: 'Review current status',
-    desc: 'Check the live banner on dotacheats.com and Discord #status before purchase—especially after a Dota 2 or VAC update.',
+    title: 'Pick your access window',
+    desc: 'Monthly or lifetime keys cover the same R6 module list—choose what fits your season on PC.',
   },
   {
     num: '02',
-    title: 'Choose your access tier',
-    desc: 'Select Elite dota cheats or the utility that matches your goal. Review the feature list before checkout via our secure checkout.',
+    title: 'Complete secure checkout',
+    desc: 'Checkout runs on our partner page. Keep the email you pay with handy for delivery.',
   },
   {
     num: '03',
-    title: 'Contact the team',
-    desc: 'Open Discord and confirm availability, Steam platform, and payment details with your order email ready.',
+    title: 'Install the loader',
+    desc: 'Follow the delivery email, run the loader on Windows 10/11, and import a starter config.',
   },
   {
     num: '04',
-    title: 'Follow guided setup',
-    desc: 'Use only the operator portal, patch loader, and setup guide. Test in a lobby, load presets, then queue ranked or Turbo.',
+    title: 'Tune in a private match',
+    desc: 'Test aim circle size, ESP density, and radar zoom before jumping into ranked playlists.',
   },
 ];
 
 function acquisitionFor(productName: string): ProductAcquisition {
-  return {
-    title: `How to get ${productName}`,
-    steps: defaultAcquisitionSteps,
-  };
+  return { title: `How to get ${productName}`, steps: sharedAcquisition };
 }
 
 const sharedGoodToKnow =
-  'Dota 2 and VAC receive frequent updates. Confirm module availability on the live status panel at dotacheats.com before you purchase or launch. Overlay behavior may differ in lobbies, replays and spectator mode after patches.';
+  'Rainbow Six Siege receives frequent updates. Confirm the status note on the homepage before you launch. Stream-proof overlay mode is available when you record gameplay.';
 
 const sharedLimitations =
-  'Third-party software in Dota 2 can violate Valve Terms of Use and lead to VAC bans or account action. You use this software at your own risk. Compatibility and availability can change after game, VAC, or Windows updates without notice.';
+  'Third-party software in online multiplayer can violate publisher terms and lead to account penalties. You accept that risk. Features and compatibility can change after game or Windows updates without notice.';
 
-const dotaSystemRequirements: SystemRequirement[] = [
-  { icon: 'reqWindows', text: 'Supported 64-bit edition of Windows 10 or Windows 11.' },
-  { icon: 'reqSteam', text: 'Current Dota 2 client via Steam with latest patches applied.' },
-  { icon: 'reqSettings', text: 'Administrator access for loader installation and patch updates.' },
-  { icon: 'reqWifi', text: 'Stable internet connection for portal access and patch delivery.' },
-  { icon: 'reqCpu', text: 'A system that meets Dota 2 published hardware requirements.' },
+const r6SystemRequirements: SystemRequirement[] = [
+  { icon: 'reqWindows', text: 'Windows 10 or Windows 11 (64-bit).' },
+  { icon: 'reqCpu', text: 'Intel or AMD CPU that meets R6 PC requirements.' },
+  { icon: 'reqSettings', text: 'Secure Boot, TPM, HVCI, and Core Isolation enabled where required.' },
+  { icon: 'reqWifi', text: 'Stable internet for loader access and module updates.' },
 ];
 
-type GalleryKey = keyof typeof galleryRaw;
-
-const gameplay = '/images/gameplay';
-
-const galleryRaw = {
-  gpMapHack: {
-    src: `${gameplay}/dota-2-map-hack.png`,
-    alt: 'Dota 2 map hack showing enemy hero positions and ward locations',
-    caption: 'Map hack awareness',
-    captionDesc: 'Enemy position tracking, ward ESP and rune timers during a ranked mid push.',
+const slides = {
+  aimbot: {
+    src: GAMEPLAY_STILLS.aimbotMenu,
+    alt: 'R6 aimbot menu showing FOV circle and smoothing sliders',
+    caption: 'Aim assist tuning',
+    captionDesc: 'FOV ring, smooth strength, and bone priority for 6v6 engagements.',
   },
-  gpScripts: {
-    src: `${gameplay}/dota-2-scripts-combo.png`,
-    alt: 'Dota 2 Auto Combo script landing Invoker combo sequence',
-    caption: 'Auto Combo scripts',
-    captionDesc: 'Invoker Tornado → EMP → Meteor chain with Smart Cast prediction active.',
+  esp: {
+    src: GAMEPLAY_STILLS.espOperators,
+    alt: 'R6 player ESP with boxes, health bars, and skeleton overlay',
+    caption: 'Player ESP layout',
+    captionDesc: 'Corner boxes, armor readout, and distance caps for readable 6v6 fights.',
   },
-  gpZoomHack: {
-    src: `${gameplay}/dota-2-zoom-hack.png`,
-    alt: 'Dota 2 zoom hack extended camera view of entire lane',
-    caption: 'Extended camera zoom',
-    captionDesc: 'Zoom hack showing full lane vision for safer positioning and gank avoidance.',
+  trigger: {
+    src: GAMEPLAY_STILLS.triggerConfig,
+    alt: 'R6 triggerbot settings with delay and hitbox options',
+    caption: 'Trigger module',
+    captionDesc: 'Delay, hold key, and shared wall checks with aim assist.',
   },
-  gpSkinChanger: {
-    src: `${gameplay}/dota-2-skin-changer.png`,
-    alt: 'Dota 2 Skin Changer previewing arcana cosmetic on hero',
-    caption: 'Skin Changer preview',
-    captionDesc: 'Local arcana and immortal preview via Unlock All—client-side only.',
+  radar: {
+    src: GAMEPLAY_STILLS.radarOverlay,
+    alt: 'R6 2D radar with operator markers and zoom controls',
+    caption: '2D radar',
+    captionDesc: 'Operator dots with range and zoom for Ground War rotations.',
   },
-  gpAutoKill: {
-    src: `${gameplay}/dota-2-auto-kill-steal.png`,
-    alt: 'Dota 2 Auto Kill Steal finishing low HP enemy with Zeus ultimate',
-    caption: 'Auto Kill Steal',
-    captionDesc: 'Lethal threshold detection activating Finger of Death at perfect timing.',
+  dmz: {
+    src: GAMEPLAY_STILLS.gadgetEsp,
+    alt: 'Rainbow Six Siege gadget ESP highlighting drones claymores and defender traps',
+    caption: 'Gadget ESP',
+    captionDesc: 'Attacker drones, claymores, frost traps, and mute jammers on a clean overlay.',
   },
-  gpFarmBot: {
-    src: `${gameplay}/dota-2-farm-bot.png`,
-    alt: 'Dota 2 Auto Farm Bot clearing jungle camps efficiently',
-    caption: 'Auto Farm Bot',
-    captionDesc: 'Jungle pathing with stack timer and courier manager for max GPM.',
+  menu: {
+    src: GAMEPLAY_STILLS.menuConfig,
+    alt: 'Rainbow Six Siege cheat menu with saved config profiles for ranked',
+    caption: 'Config profiles',
+    captionDesc: 'Save ranked and quick match setups without rebuilding sliders each session.',
   },
-  gpHeroEsp: {
-    src: `${gameplay}/dota-2-hero-esp.png`,
-    alt: 'Dota 2 hero ESP with name tags and distance readouts',
-    caption: 'Hero ESP overlay',
-    captionDesc: 'Hero name tags, team colors and distance markers through fog of war.',
+  aimbotB: {
+    src: GAMEPLAY_STILLS.wallhackSite,
+    alt: 'R6 aim assist circle overlay during a gunfight',
+    caption: 'Aim circle',
+    captionDesc: 'On-screen FOV ring for believable tracking help.',
+  },
+  espB: {
+    src: GAMEPLAY_STILLS.wallhackSite,
+    alt: 'R6 wallhack style player boxes in a multiplayer match',
+    caption: 'Readable ESP',
+    captionDesc: 'Soft colors for cover vs line-of-sight targets.',
+  },
+  triggerB: {
+    src: GAMEPLAY_STILLS.menuConfig,
+    alt: 'R6 triggerbot hold key binding in the menu',
+    caption: 'Trigger hold key',
+    captionDesc: 'Fire only when you mean to.',
+  },
+  radarB: {
+    src: GAMEPLAY_STILLS.rankedPush,
+    alt: 'R6 radar overlay beside the minimap',
+    caption: 'Radar zoom',
+    captionDesc: 'Pull zoom in for Ground War lanes.',
+  },
+  dmzB: {
+    src: GAMEPLAY_STILLS.gadgetEsp,
+    alt: 'Rainbow Six Siege defender trap markers on gadget ESP overlay',
+    caption: 'Trap awareness',
+    captionDesc: 'Frost mats and Ela mines stand out before you commit to a push.',
+  },
+  menuB: {
+    src: GAMEPLAY_STILLS.rankedPush,
+    alt: 'R6 misc tab with stream-proof toggle',
+    caption: 'Stream-proof mode',
+    captionDesc: 'Keep overlays off capture when you record.',
   },
 };
 
-function slide(...keys: GalleryKey[]): ProductSlide[] {
-  return keys.map((k) => {
-    const item = galleryRaw[k];
-    return {
-      src: item.src,
-      alt: item.alt,
-      caption: item.caption,
-      captionDesc: item.captionDesc,
-    };
-  });
-}
-
-function slugFromHref(href: string): string {
-  const segment = href.replace(productBase, '').replace(/^\//, '').replace(/\/$/, '');
-  return segment || 'dota-2-cheats';
-}
-
-const tierAbout: Record<string, ProductPage['about']> = {
-  lite: [
-    {
-      type: 'p',
-      text: 'Dota 2 Lite is built for players who want map awareness first. In ranked, knowing enemy positions, ward placements and rune timings wins more fights than raw mechanics—Lite gives you that edge without script automation.',
-    },
-    { type: 'h2', text: 'Ranked-safe by design' },
-    {
-      type: 'p',
-      text: 'Lite skips Auto Combo and bot modules entirely. Your gameplay looks natural while map hack, zoom hack and rune timers keep you informed. Stream-proof mode hides overlays from OBS capture for content creators.',
-    },
-  ],
-  pro: [
-    {
-      type: 'p',
-      text: 'Dota 2 Pro is the sweet spot for ranked grinders. Auto Combo, Orbwalker and Smart Cast help you win teamfights without obvious bot patterns—when you tune Delay Setting using our portal presets.',
-    },
-    { type: 'h2', text: 'Scripts + awareness combined' },
-    {
-      type: 'p',
-      text: 'Pro inherits every Lite module and adds Auto Combo, Target Selector, Activator and ability radius drawing. You see the fight before it starts and win it with scripts that stay human at default settings.',
-    },
-  ],
-  elite: [
-    {
-      type: 'p',
-      text: 'Dota 2 Elite is the private build for players who want everything—Auto Farm Bot, Auto Kill Steal, Auto Dagon, Skin Changer, full map hack and direct developer support. Limited slots keep the build maintainable and patch cycles fast.',
-    },
-    { type: 'h2', text: 'Use Elite responsibly' },
-    {
-      type: 'p',
-      text: 'Elite power demands disciplined profiles. Test in lobbies, start with portal conservative presets, and scale up over days—not minutes. Staff in Discord help Elite users tune before their first ranked queue.',
-    },
-  ],
+type ModuleDef = {
+  slug: string;
+  name: string;
+  title: string;
+  subtitle: string;
+  desc: string;
+  features: string[];
+  more: number;
+  badge: string;
+  category: string;
+  variant?: ProductPage['variant'];
+  imageKey: keyof typeof slides;
+  fullFeatures: string[];
+  overview: string[];
+  body: { type: 'h2' | 'p'; text: string }[];
 };
 
-const tierBodies: Record<string, ProductPage['body']> = {
-  lite: [
-    { type: 'h2', text: 'Included modules' },
-    {
-      type: 'p',
-      text: 'Hero ESP with distance and name tags, ward and sentry locator, rune spawn timers, zoom hack, and stream-safe overlay hiding. Config presets for ranked and Turbo ship in the portal—load before your first queue.',
-    },
-    { type: 'h2', text: 'Upgrade path' },
-    {
-      type: 'p',
-      text: 'Lite license holders can upgrade to Pro or Elite through the portal without losing config backups. Compare tiers on the main product page before checkout via our secure checkout.',
-    },
-  ],
-  pro: [
-    { type: 'h2', text: 'Scripts and automation' },
-    {
-      type: 'p',
-      text: 'Auto Combo, Orbwalker, Smart Cast with Prediction, Target Selector and Activator for BKB, Hex and Orchid. Delay Setting tunes cast timing so scripts stay natural in ranked. Start with portal presets, not max sliders.',
-    },
-    { type: 'h2', text: 'Recommended pairing' },
-    {
-      type: 'p',
-      text: 'Pro is the most popular tier at dotacheats.com—enough firepower for high-MMR lobbies without Elite slot limits. Pair with our scripts guide in the blog before your first ranked session.',
-    },
-  ],
-  elite: [
-    { type: 'h2', text: 'Full bot and finish suite' },
-    {
-      type: 'p',
-      text: 'Auto Farm Bot, Lane Control AI, Auto Kill Steal, Auto Dagon, Skin Changer and full map hack with smoke alerts. Use lobby testing before ranked—Elite power requires disciplined profiles, not rage settings.',
-    },
-    { type: 'h2', text: 'Availability' },
-    {
-      type: 'p',
-      text: 'Elite shows as limited slots on the status banner. Open a Discord ticket if checkout is gated—staff confirm slot availability before purchase.',
-    },
-  ],
+const modules: ModuleDef[] = [
+  {
+    slug: 'aimbot',
+    name: 'Aimbot',
+    title: 'R6 Aimbot Module',
+    subtitle: 'Smooth aim inside your FOV ring',
+    desc: 'Precision aim assist for Rainbow Six Siege PC multiplayer with circle FOV, smoothing, and visibility checks.',
+    features: ['Adjustable aim circle', 'Head or chest priority', 'Team and downed filters', 'Shared wall logic'],
+    more: 8,
+    badge: 'Core module',
+    category: 'Aim assist',
+    variant: 'popular',
+    imageKey: 'aimbot',
+    fullFeatures: [
+      'Aim circle sized around your crosshair',
+      'Smooth tracking instead of instant snaps',
+      'Head, upper chest, or closest bone selection',
+      'Ignores operators behind hard cover',
+      'Distance cap per playlist',
+      'Skip teammates and downed players',
+      'Optional FOV ring draw for tuning',
+    ],
+    overview: [
+      'The aim module eases onto targets inside a circle you control. It respects the same visibility rules you expect in a competitive match—no tracking through solid walls.',
+      'Start with a wide circle and higher smoothing in private matches, then tighten values once your crosshair placement feels natural.',
+    ],
+    body: [
+      { type: 'h2', text: 'Who this fits' },
+      {
+        type: 'p',
+        text: 'Players who want steadier gunfights in 6v6 and Ground War without jerky camera movement. Pair with player ESP if you need extra context on flanks.',
+      },
+    ],
+  },
+  {
+    slug: 'esp',
+    name: 'Player ESP',
+    title: 'R6 ESP & Wallhack',
+    subtitle: 'Readable boxes, health, and skeleton',
+    desc: 'Player ESP for R6 with armor plates, distance, weapon readouts, and squad colors tuned for fast TTK playlists.',
+    features: ['Box or corner style', 'Health and plates', 'Skeleton option', 'Squad color coding'],
+    more: 10,
+    badge: 'Core module',
+    category: 'Visuals',
+    variant: 'essential',
+    imageKey: 'esp',
+    fullFeatures: [
+      'Full box or corner box styles',
+      'Skeleton for stance reads',
+      'Health and armor plate display',
+      'Distance readout with cap slider',
+      'Optional name tags',
+      'Weapon in hand label',
+      'Snaplines with distance limit',
+      'Muted color for players behind soft cover',
+      'Squad color grouping',
+    ],
+    overview: [
+      'ESP keeps fights readable: you see who is pushing, who is one plate away, and how far the duel actually is.',
+      'Names stay off by default so the screen stays clean—toggle them when you are reviewing demos or coaching friends.',
+    ],
+    body: [
+      { type: 'h2', text: '6v6 vs DMZ' },
+      {
+        type: 'p',
+        text: 'For Gadget ESP you will usually run the loot layer separately. In 6v6, a tight box plus health is often enough—see the Gadget ESP page when you rotate modes.',
+      },
+    ],
+  },
+  {
+    slug: 'triggerbot',
+    name: 'Triggerbot',
+    title: 'R6 Triggerbot',
+    subtitle: 'Shots only when you are on target',
+    desc: 'Trigger module fires when your crosshair is already on an operator, with delay tuning and shared visibility checks.',
+    features: ['Hold key', 'Shot delay', 'Head or chest', 'Wall check parity'],
+    more: 4,
+    badge: 'Add-on',
+    category: 'Combat',
+    imageKey: 'trigger',
+    fullFeatures: [
+      'Fires on crosshair contact only',
+      'Short delay before shot',
+      'Head or upper chest selection',
+      'Same wall validation as aim assist',
+      'Hold key binding',
+    ],
+    overview: [
+      'Trigger does not pull your aim—it only confirms the shot when you are already lined up. That keeps recoil control in your hands.',
+    ],
+    body: [
+      {
+        type: 'p',
+        text: 'Use a slightly longer delay if you want the module to feel closer to manual clicking in clutch moments.',
+      },
+    ],
+  },
+  {
+    slug: 'radar',
+    name: '2D Radar',
+    title: 'R6 2D Radar',
+    subtitle: 'Minimap-style operator feed',
+    desc: 'Compact radar with operator markers, zoom, and range limits for Ground War and large playlists.',
+    features: ['Operator dots', 'Zoom slider', 'Range cap', 'Matches ESP colors'],
+    more: 3,
+    badge: 'Awareness',
+    category: 'Radar',
+    imageKey: 'radar',
+    fullFeatures: ['2D radar overlay', 'Operator markers', 'Radar range control', 'Radar zoom'],
+    overview: [
+      'The radar mirrors ESP logic in a smaller footprint—handy when you are holding a lane and do not want to scan the whole screen.',
+    ],
+    body: [],
+  },
+  {
+    slug: 'gadget-esp',
+    name: 'Gadget ESP',
+    title: 'R6 Gadget ESP',
+    subtitle: 'Traps, cameras, and utility highlights',
+    desc: 'Highlights defender gadgets, cameras, and utility on Siege maps—with a lean preset for ranked.',
+    features: ['Trap outlines', 'Camera tags', 'Utility range', 'Ranked-safe preset'],
+    more: 4,
+    badge: 'Gadgets',
+    category: 'Utility',
+    imageKey: 'dmz',
+    fullFeatures: [
+      'Defender trap highlights',
+      'Camera and gadget tags',
+      'Utility distance fade',
+      'Color matched to player ESP',
+      'Toggle per gadget class',
+      'Ranked playlist preset',
+    ],
+    overview: [
+      'Gadget ESP keeps round-critical utility visible without cluttering your screen during pushes and retakes.',
+    ],
+    body: [],
+  },
+];
+
+type SlideKey = keyof typeof slides;
+
+const moduleSecondSlide: Record<string, SlideKey> = {
+  aimbot: 'aimbotB',
+  esp: 'espB',
+  triggerbot: 'triggerB',
+  radar: 'radarB',
+  'gadget-esp': 'dmzB',
 };
 
-const utilityBodies: Record<string, ProductPage['body']> = {
-  'hwid-spoofer': [
-    { type: 'h2', text: 'When you need it' },
-    {
-      type: 'p',
-      text: 'Use when fresh Steam accounts fail instantly on one PC but work elsewhere—classic HWID enforcement. Do not use for account-only VAC cases; see [UGC](/products/dota-2-cheats/ugc/) instead.',
-    },
-    { type: 'h2', text: 'Full workflow' },
-    {
-      type: 'p',
-      text: 'Restore point, driver cleanup, spoof application, cold reboot, identifier verification, then conservative cheat profile before ranked. Full checklist ships in the portal and in our HWID blog guide.',
-    },
-  ],
-  'ugc': [
-    { type: 'h2', text: 'What UGC covers' },
-    {
-      type: 'p',
-      text: 'UGC (Unban & Governance Control) is an appeal workspace for Steam restrictions, VAC bans, trade holds and security flags. Build custom workflows, automate dispute steps and track case status from one dashboard—not a guaranteed unban service.',
-    },
-    { type: 'h2', text: 'Realistic expectations' },
-    {
-      type: 'p',
-      text: 'Some VAC bans cannot be reversed. UGC organizes evidence and follow-ups for Valve review. Pair with [HWID Spoofer](/products/dota-2-cheats/hwid-spoofer/) when hardware is flagged, or a new account when reputation is burned.',
-    },
-  ],
-  'unlock-all': [
-    { type: 'h2', text: 'Local preview only' },
-    {
-      type: 'p',
-      text: 'Cosmetics display on your client for testing and content creation. Other players in your lobby see your actual inventory, not preview skins.',
-    },
-    { type: 'h2', text: 'Included with Elite' },
-    {
-      type: 'p',
-      text: 'Skin Changer ships inside the Elite tier. Buy standalone here if you want cosmetic preview without full combat modules.',
-    },
-  ],
-};
-
-const productContent: Record<
-  string,
-  Pick<ProductPage, 'overview' | 'images' | 'fullFeatures' | 'goodToKnow' | 'limitations' | 'systemRequirements'>
-> = {
-  lite: {
-    images: slide('gpHeroEsp', 'gpMapHack', 'gpZoomHack'),
+function buildPages(): ProductPage[] {
+  return modules.map((mod) => ({
+    slug: mod.slug,
+    kind: 'tier',
+    badge: mod.badge,
+    category: mod.category,
+    tier: mod.name,
+    name: mod.name,
+    title: mod.title,
+    subtitle: mod.subtitle,
+    desc: mod.desc,
+    features: mod.features,
+    more: mod.more,
+    variant: mod.variant,
+    buyUrl: checkoutForSlug(mod.slug),
+    images: [slides[mod.imageKey], slides[moduleSecondSlide[mod.slug] ?? 'menuB']],
+    overview: { title: `${mod.name} overview`, paragraphs: mod.overview },
+    acquisition: acquisitionFor(mod.title),
     goodToKnow: sharedGoodToKnow,
     limitations: sharedLimitations,
-    systemRequirements: dotaSystemRequirements,
-    fullFeatures: [
-      'Player ESP & hero boxes',
-      'Ward & sentry locator',
-      'Jungle camp awareness',
-      'Ability cooldown tracking',
-      'Minimap hack overlay',
-      'Streamproof overlay mode',
-      'Distance readouts',
-      'Team color filter',
-      'Rune spawn timers',
-      'Zoom hack',
-      'Turbo preset config',
-      'Ranked preset config',
-      'Cloud config backup',
-      'Patch auto-updater',
-    ],
-    overview: {
-      title: 'Built around a clear Dota 2 awareness workflow',
-      paragraphs: [
-        'Dota 2 Lite focuses on hero ESP, ward locator, rune timers and zoom hack—everything you need to track ganks and map control without script automation. Modules are grouped in the portal so you can tune distance, colors, and stream-proof mode before your first queue.',
-        'Lite is the entry path for ranked and Turbo players who want map awareness with minimal report risk. No Auto Combo, no bots—just readable overlays maintained every patch at dotacheats.com.',
-      ],
-    },
-  },
-  pro: {
-    images: slide('gpScripts', 'gpMapHack', 'gpHeroEsp'),
-    goodToKnow: sharedGoodToKnow,
-    limitations: sharedLimitations,
-    systemRequirements: dotaSystemRequirements,
-    fullFeatures: [
-      'All Lite ESP & map hack modules',
-      'Auto Combo scripts',
-      'Orbwalker',
-      'Smart Cast & Prediction',
-      'Target Selector',
-      'Activator (BKB/Hex/Orchid)',
-      'Auto Heal',
-      'Ability radius drawing',
-      'Delay Setting tuning',
-      'Hero-specific script profiles',
-      'Smoke alert integration',
-      'Ranked-safe default presets',
-      'Lobby test profile',
-      'Cloud config backup',
-      'Patch auto-updater',
-      'Discord operator support',
-    ],
-    overview: {
-      title: 'Built around a clear Dota 2 scripts workflow',
-      paragraphs: [
-        'Dota 2 Pro adds Auto Combo, Orbwalker, Smart Cast and Activator on top of every Lite module. Hero profiles, delay tuning and activation keys live in one scripts tab—tuned for ranked lobbies when you start with portal presets, not max sliders.',
-        'Pro is the most popular tier: enough firepower for ranked and Turbo without Elite slot limits. Target Selector and Activator keep you efficient mid-fight while scripts stay human at default settings.',
-      ],
-    },
-  },
-  elite: {
-    images: slide('gpAutoKill', 'gpFarmBot', 'gpSkinChanger'),
-    goodToKnow: sharedGoodToKnow,
-    limitations: sharedLimitations,
-    systemRequirements: dotaSystemRequirements,
-    fullFeatures: [
-      'All Lite + Pro modules',
-      'Auto Farm Bot',
-      'Lane Control AI',
-      'Stack timer',
-      'Auto Courier Manager',
-      'Auto Kill Steal',
-      'Auto Dagon',
-      'Full map hack suite',
-      'Smoke alert system',
-      'Vision detector',
-      'Skin Changer (Unlock All)',
-      'Priority patch queue',
-      'Direct dev Discord support',
-      'Elite conservative presets',
-      'Cloud config backup',
-      'Patch auto-updater',
-      'Private slot access',
-    ],
-    overview: {
-      title: 'Built around a full Dota 2 operator workflow',
-      paragraphs: [
-        'Dota 2 Elite is the private build with Auto Farm Bot, Auto Kill Steal, Auto Dagon, Skin Changer, full map hack and priority patch delivery. Every Lite and Pro module is included—no caps, no upsells inside the loader.',
-        'Elite slots are limited so patch cycles stay fast and builds stay maintainable. Direct dev support in Discord helps you tune conservative profiles before ranked. Check the status banner on dotacheats.com before purchase.',
-      ],
-    },
-  },
-  'hwid-spoofer': {
-    images: slide('gpMapHack', 'gpHeroEsp', 'gpZoomHack'),
-    goodToKnow:
-      'Run the compatibility scan in the portal before spoofing. Create a Windows restore point first. Verify identifiers changed after a cold reboot before launching Dota 2.',
-    limitations:
-      'Spoofing does not help account-only VAC cases. Never stack two spoof tools. Shared or work PCs may not be suitable. You accept all risk from driver-level changes.',
-    systemRequirements: [
-      { icon: 'reqWindows', text: 'Windows 10 or 11 64-bit with administrator access.' },
-      { icon: 'reqRestorePoint', text: 'Ability to create a system restore point before running.' },
-      { icon: 'reqShieldGuide', text: 'Follow the portal setup guide before launching Dota 2 after spoofing.' },
-      { icon: 'reqWifi', text: 'Stable connection for portal verification tools.' },
-    ],
-    fullFeatures: [
-      'Disk serial profile tools',
-      'MAC address rotation',
-      'Restore point checklist',
-      'Compatibility scan',
-      'Driver conflict detection',
-      'Post-spoof verification',
-      'Identifier diff report',
-      'Cold reboot guide',
-      'Portal step-by-step workflow',
-      'Discord recovery support',
-    ],
-    overview: {
-      title: 'Built around a clear hardware recovery workflow',
-      paragraphs: [
-        'The HWID Spoofer helps Dota 2 players recover when VAC flags PC hardware but the Steam account is still clean. Disk and MAC profile tools ship with a restore-point checklist, compatibility scan, and post-spoof verification steps.',
-        'Use this path when fresh accounts fail instantly on one machine but work elsewhere—not for account-only VAC cases. After spoof, load a conservative cheat profile from dotacheats.com before queuing ranked.',
-      ],
-    },
-  },
-  ugc: {
-    images: slide('gpMapHack', 'gpHeroEsp', 'gpZoomHack'),
-    goodToKnow:
-      'Gather order email, platform account details and restriction screenshots before opening a ticket. UGC structures appeals—it does not bypass platform review.',
-    limitations:
-      'UGC does not guarantee account restoration. Results vary by case type. Permanent VAC bans may require a new account path instead of appeal.',
-    systemRequirements: [
-      { icon: 'reqMailOrder', text: 'Order email used at checkout on dotacheats.com or at checkout on dotacheats.com.' },
-      { icon: 'reqShieldAccount', text: 'Account details and ban or restriction notification if available.' },
-      { icon: 'reqWifiPortal', text: 'Internet access for Discord support and case dashboard.' },
-    ],
-    fullFeatures: [
-      'Custom appeal workflows',
-      'Restriction dispute automation',
-      'Case documentation templates',
-      'Status tracking dashboard',
-      'Identity verification guide',
-      'Evidence upload structure',
-      'Timeline tracker',
-      'Follow-up response templates',
-      'Multi-platform support',
-    ],
-    overview: {
-      title: 'Built around account recovery and appeal workflows',
-      paragraphs: [
-        'UGC (Unban & Governance Control) helps you recover restricted gaming, social and marketplace accounts with structured appeal workflows and automation—not instant unban guarantees.',
-        'Build custom dispute paths, track case status and rebuild your presence with smart restriction-management tools. Support walks you through each step via Discord when you need hands-on help.',
-      ],
-    },
-  },
-  'unlock-all': {
-    images: slide('gpSkinChanger', 'gpHeroEsp', 'gpMapHack'),
-    goodToKnow:
-      'Unlock All previews cosmetics locally on your client. Other players in your lobby see your real inventory—not preview skins. Included with Elite tier.',
-    limitations:
-      'Local preview only—does not modify Steam inventory or store state. Other players cannot see previewed arcanas or sets.',
-    systemRequirements: dotaSystemRequirements,
-    fullFeatures: [
-      'Hero skin swap',
-      'Arcana & immortal preview',
-      'Weapon & effect customizer',
-      'Loading screen editor',
-      'Cursor & HUD theme',
-      'Ward & courier replacer',
-      'Favorites list',
-      'Loadout export',
-    ],
-    overview: {
-      title: 'Built around a local cosmetic preview workflow',
-      paragraphs: [
-        'Unlock All lets you browse hero arcanas, immortals and exclusive sets locally in Dota 2—searchable catalog, favorites, and loadout export without modifying live Steam purchases.',
-        'Cosmetics display on your client for testing and content creation. Other players see your actual inventory, not preview skins. Included free with Elite; available standalone for cosmetic preview without combat modules.',
-      ],
-    },
-  },
-};
-
-function buildTierPages(): ProductPage[] {
-  return t.cheats.items.map((cheat) => {
-    const slug = slugFromHref(cheat.href);
-    const content = productContent[slug];
-    const displayName = cheat.name === 'Lite' ? 'Dota 2 Lite' : cheat.name === 'Pro' ? 'Dota 2 Pro' : 'Dota 2 Elite';
-    return {
-      slug,
-      kind: 'tier',
-      badge: cheat.badge,
-      tier: cheat.tier,
-      name: cheat.name,
-      title: cheat.title,
-      subtitle: cheat.desc,
-      desc: cheat.desc,
-      features: cheat.features,
-      more: cheat.more,
-      variant: cheat.variant,
-      buyUrl: checkoutForSlug(slug),
-      images: content.images,
-      overview: content.overview,
-      acquisition: acquisitionFor(displayName),
-      goodToKnow: content.goodToKnow,
-      limitations: content.limitations,
-      fullFeatures: content.fullFeatures,
-      systemRequirements: content.systemRequirements,
-      about: tierAbout[slug],
-      body: tierBodies[slug] ?? [],
-      relatedBlogSlugs: productRelatedBlogSlugs[slug] ?? [],
-    };
-  });
+    fullFeatures: mod.fullFeatures,
+    systemRequirements: r6SystemRequirements,
+    body: mod.body,
+    relatedBlogSlugs: productRelatedBlogSlugs[mod.slug] ?? [],
+  }));
 }
 
-function buildUtilityPages(): ProductPage[] {
-  return t.products.items
-    .filter((p) => p.href !== productBase)
-    .map((product) => {
-      const slug = slugFromHref(product.href);
-      const content = productContent[slug];
-      return {
-        slug,
-        kind: 'utility',
-        badge: product.badge,
-        category: product.category,
-        name: product.title,
-        title: product.title,
-        subtitle: product.subtitle,
-        desc: product.desc,
-        features: product.features,
-        more: product.more,
-        buyUrl: checkoutForSlug(slug),
-        images: content.images,
-        overview: content.overview,
-        acquisition: acquisitionFor(product.title),
-        goodToKnow: content.goodToKnow,
-        limitations: content.limitations,
-        fullFeatures: content.fullFeatures,
-        systemRequirements: content.systemRequirements,
-        body: utilityBodies[slug] ?? [],
-        relatedBlogSlugs: productRelatedBlogSlugs[slug] ?? [],
-      };
-    });
-}
+export const productPages: ProductPage[] = buildPages();
 
-export const productPages: ProductPage[] = [...buildTierPages(), ...buildUtilityPages()];
-
-export const cheatPages = productPages.filter((p) => p.kind === 'tier');
+export const cheatPages = productPages;
 
 export function getProductPage(slug: string) {
   return productPages.find((p) => p.slug === slug);
 }
 
 export function getCheatPage(slug: string) {
-  return cheatPages.find((p) => p.slug === slug);
+  return getProductPage(slug);
 }
 
 export function getAllProductSlugs() {
@@ -581,25 +395,16 @@ export function getAllProductSlugs() {
 }
 
 export function getAllCheatSlugs() {
-  return cheatPages.map((p) => p.slug);
+  return productPages.map((p) => p.slug);
 }
 
-const cheatsHubSlides = slide('gpScripts', 'gpAutoKill', 'gpFarmBot');
-
-export const heroSlides = slide(
-  'gpMapHack',
-  'gpScripts',
-  'gpZoomHack',
-  'gpSkinChanger',
-  'gpAutoKill',
-  'gpFarmBot',
-  'gpHeroEsp',
-);
+export const heroSlides = [slides.esp, slides.aimbot, slides.radar, slides.dmz];
 
 export const productHub = {
   path: productBase,
   title: t.products.title,
   subtitle: t.products.subtitle,
-  description: 'Elite dota cheats, HWID spoofer, UGC recovery, and cosmetic utilities for Dota 2 on PC.',
-  buyUrl: checkoutPath('dota2'),
+  description:
+    'Rainbow Six Siege PC modules—aim assist, player ESP, wallhack, gadget ESP, triggerbot, and radar in one access pass.',
+  buyUrl: checkoutPath('r6'),
 };

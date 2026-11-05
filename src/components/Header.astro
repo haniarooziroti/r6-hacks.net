@@ -14,16 +14,25 @@ import Icon from './icons/Icon.astro';
 import SlideRevealButton from './SlideRevealButton.astro';
 
 import type { IconName } from './icons/types';
+import { DESKTOP_NAV_LABEL, MOBILE_NAV_LABEL } from '../utils/linkLabels';
 
 const navIcons: Record<string, IconName> = {
+  Home: 'layers',
   Products: 'navProducts',
   Blog: 'navBlog',
   Forum: 'messageCircle',
+  Reviews: 'users',
   FAQ: 'navFaq',
   Support: 'navSupport',
 };
 
-const purchaseUrl = checkoutPath('dota2');
+const purchaseUrl = checkoutPath('r6');
+
+interface Props {
+  logoAlt?: string;
+}
+
+const { logoAlt = 'Aimbot – logo' } = Astro.props;
 ---
 
 <header class="pointer-events-none fixed inset-x-0 top-0 z-50">
@@ -31,20 +40,21 @@ const purchaseUrl = checkoutPath('dota2');
     <div
       class="pointer-events-auto relative flex h-14 w-full max-w-6xl items-center justify-between gap-3 rounded-2xl border border-border/40 bg-background/35 px-4 text-foreground shadow-md shadow-black/5 backdrop-blur-2xl supports-[backdrop-filter]:bg-background/25 dark:border-white/10 dark:bg-background/20 dark:shadow-black/25 sm:px-5 lg:h-[3.75rem]"
     >
-    <a href="/" class="inline-flex min-w-0 items-center font-[family-name:var(--font-heading)] text-lg font-bold tracking-wide" aria-label={t.ui.homeAria}>
-      <span class="truncate" aria-hidden="true">Dota<span class="text-primary">Cheats</span></span>
+    <a href="/" class="inline-flex min-w-0 items-center gap-2 font-[family-name:var(--font-heading)] text-lg font-bold tracking-wide" aria-label={t.ui.homeAria}>
+      <img src="/logo.svg" alt={logoAlt} width="32" height="32" class="shrink-0 rounded-md" />
+      <span class="truncate" aria-hidden="true">R6<span class="text-primary">Cheat</span></span>
     </a>
 
-    <nav class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-6 lg:flex" aria-label="Primary">
+    <nav class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-3 xl:gap-4 lg:flex" aria-label="Primary">
       {t.nav.map((link) => (
         <a
           href={link.href}
-          class="nav-link inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+          class="nav-link inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           data-nav-link
           {...(link.scrollTarget ? { 'data-scroll-target': link.scrollTarget } : {})}
         >
           <Icon name={navIcons[link.label] ?? 'navFeatures'} size={16} />
-          {link.label}
+          {DESKTOP_NAV_LABEL[link.label] ?? link.label}
         </a>
       ))}
     </nav>
@@ -80,7 +90,7 @@ const purchaseUrl = checkoutPath('dota2');
                 {...(link.scrollTarget ? { 'data-scroll-target': link.scrollTarget } : {})}
               >
                 <Icon name={navIcons[link.label] ?? 'navFeatures'} size={16} />
-                {link.label}
+                {MOBILE_NAV_LABEL[link.label] ?? link.label}
               </a>
             ))}
           </nav>

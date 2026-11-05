@@ -6,9 +6,12 @@ interface Props {
   titleId?: string;
   centered?: boolean;
   wide?: boolean;
+  /** Use h2 when the page already has a primary h1 (most section blocks). */
+  headingLevel?: 'h1' | 'h2';
 }
 
-const { eyebrow, title, desc, titleId, centered = false, wide = false } = Astro.props;
+const { eyebrow, title, desc, titleId, centered = false, wide = false, headingLevel = 'h2' } = Astro.props;
+const HeadingTag = headingLevel;
 ---
 
 <header
@@ -19,6 +22,6 @@ const { eyebrow, title, desc, titleId, centered = false, wide = false } = Astro.
   ]}
 >
   <p class="section-header__eyebrow">{eyebrow}</p>
-  <h1 id={titleId} class="section-header__title">{title}</h1>
+  <HeadingTag id={titleId} class="section-header__title">{title}</HeadingTag>
   {desc ? <p class="section-header__subtitle">{desc}</p> : null}
 </header>

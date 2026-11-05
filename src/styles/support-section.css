@@ -4,15 +4,20 @@
 }
 
 .support-section__header {
-  margin: 0;
+  margin: 0 auto;
+  max-width: 42rem;
+  text-align: center;
 }
 
 .support-section__cards {
   display: grid;
   gap: 1.25rem;
   list-style: none;
-  margin: 3rem 0 0;
+  margin: 3rem auto 0;
   padding: 0;
+  width: 100%;
+  max-width: 56rem;
+  justify-content: center;
 }
 
 @media (min-width: 640px) {
@@ -24,7 +29,7 @@
 
 @media (min-width: 1024px) {
   .support-section__cards {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.5rem;
   }
 }
@@ -41,7 +46,7 @@ html.dark .support-section__icon {
   margin-top: 3rem;
   padding-top: 2rem;
   border-top: 1px solid var(--border);
-  text-align: left;
+  text-align: center;
 }
 
 .support-section__tips-title {
@@ -55,7 +60,7 @@ html.dark .support-section__icon {
   display: grid;
   gap: 1rem;
   list-style: none;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   max-width: 48rem;
   text-align: left;

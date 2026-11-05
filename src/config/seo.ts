@@ -4,7 +4,17 @@ import { getPageSeoEntry } from './pageSeo';
 
 export const SITE_ORIGIN = `https://${t.site.domain}`;
 
-export const DEFAULT_OG_IMAGE = '/images/gameplay/dota-2-map-hack.png';
+/** Override at build time for preview hosts (e.g. Cloudflare Workers) so canonical/hreflang are self-referencing. */
+export function getSiteOrigin(): string {
+  const fromEnv = import.meta.env.PUBLIC_SITE_ORIGIN as string | undefined;
+  if (fromEnv?.trim()) return fromEnv.trim().replace(/\/$/, '');
+  return SITE_ORIGIN;
+}
+
+import { DEFAULT_SITE_OG_IMAGE } from './media';
+
+/** Default social share image (1200×630). */
+export const DEFAULT_OG_IMAGE = DEFAULT_SITE_OG_IMAGE;
 
 export const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID as string | undefined;
 
@@ -29,13 +39,13 @@ export function canonicalUrl(pathname: string): string {
   let path = pathname || '/';
   if (!path.startsWith('/')) path = `/${path}`;
   if (path !== '/' && !path.endsWith('/')) path = `${path}/`;
-  return `${SITE_ORIGIN}${path}`;
+  return `${getSiteOrigin()}${path}`;
 }
 
 export function absoluteAssetUrl(path: string): string {
   if (path.startsWith('http://') || path.startsWith('https://')) return path;
   const normalized = path.startsWith('/') ? path : `/${path}`;
-  return `${SITE_ORIGIN}${normalized}`;
+  return `${getSiteOrigin()}${normalized}`;
 }
 
 export function resolvePageSeo(pathname: string): { title: string; description: string } {
@@ -50,6 +60,13 @@ export function pageTitle(keyword: string, brand = t.site.name): string {
   if (`${keyword}${suffix}`.length <= max) return `${keyword}${suffix}`;
   const trimmed = keyword.slice(0, Math.max(20, max - suffix.length - 1)).trim();
   return `${trimmed}${suffix}`;
+}
+
+/** Trim copy for meta description (~155–160 chars). */
+export function truncateMetaDescription(text: string, max = 160): string {
+  const clean = text.replace(/\s+/g, ' ').trim();
+  if (clean.length <= max) return clean;
+  return `${clean.slice(0, max - 1).trimEnd()}…`;
 }
 
 export const DEFAULT_OG_IMAGE_WIDTH = 1200;

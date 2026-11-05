@@ -9,7 +9,7 @@ import { ROUTES } from '../utils/path';
 
 <BaseLayout
   title={`Page not found | ${t.site.name}`}
-  description="The page you requested could not be found on dotacheats.com."
+  description="The page you requested could not be found on r6hacks.net."
   noindex={true}
 >
   <section class="py-16 md:py-24">
@@ -21,11 +21,11 @@ import { ROUTES } from '../utils/path';
       </p>
       <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
         <Button as="a" href={ROUTES.home} variant="primary">
-          Back to home
+          Return to R6 homepage
           <Icon name="arrowRight" size={17} />
         </Button>
-        <Button as="a" href={ROUTES.products} variant="outline">View products</Button>
-        <Button as="a" href={ROUTES.productsElite} variant="outline">View Elite cheats</Button>
+        <Button as="a" href={ROUTES.products} variant="outline">Browse R6 cheat catalog</Button>
+        <Button as="a" href={ROUTES.productsElite} variant="outline">Open Elite tier module page</Button>
       </div>
     </div>
   </section>

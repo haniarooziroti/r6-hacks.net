@@ -14,15 +14,21 @@ export function stripRasterExt(src: string): string {
   return src.replace(RASTER_EXT, '');
 }
 
+export function isRemoteRaster(src: string): boolean {
+  return /^https?:\/\//i.test(src) && RASTER_EXT.test(src);
+}
+
 export function webpSrc(src: string, width: number): string {
   return `${stripRasterExt(src)}-${width}.webp`;
 }
 
 export function responsiveSrcSet(src: string, widths: readonly number[] = DEFAULT_IMAGE_WIDTHS): string {
+  if (isRemoteRaster(src)) return '';
   return widths.map((width) => `${webpSrc(src, width)} ${width}w`).join(', ');
 }
 
 /** Smallest variant — used as img src so Lighthouse and no-srcset clients get the right size. */
 export function defaultWebpSrc(src: string, widths: readonly number[]): string {
+  if (isRemoteRaster(src)) return src;
   return webpSrc(src, widths[0] ?? 640);
 }

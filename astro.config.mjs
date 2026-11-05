@@ -3,16 +3,15 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import { sitemapSerialize } from './src/config/sitemap.ts';
 
+const siteOrigin = (process.env.PUBLIC_SITE_ORIGIN || 'https://r6hacks.net').replace(/\/$/, '');
+
 export default defineConfig({
-  site: 'https://dotacheats.com',
+  site: siteOrigin,
   trailingSlash: 'always',
   redirects: {
-    '/cheats/': '/products/dota-2-cheats/',
-    '/cheats/lite/': '/products/dota-2-cheats/',
-    '/cheats/pro/': '/products/dota-2-cheats/',
-    '/cheats/elite/': '/products/dota-2-cheats/elite/',
-    '/cheats/compare/': '/blog/dota-2-lite-vs-pro/',
     '/contact/': '/support/',
+    '/forum/': '/forums/',
+    '/blog/': '/cheats/',
   },
   compressHTML: true,
   prefetch: {
@@ -24,7 +23,8 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/404') && !page.includes('/go/'),
+      filter: (page) =>
+        !page.includes('/404') && (!page.includes('/go/') || page.includes('/go/r6-siege')),
       serialize: sitemapSerialize,
     }),
   ],

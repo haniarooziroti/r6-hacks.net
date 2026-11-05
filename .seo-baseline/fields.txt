@@ -22,14 +22,14 @@ index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 === blog/index.html ===
 Dota 2 Cheats Guides &amp; Patch Notes
 Setup guides, Lite vs Pro comparisons, VAC patch checklists, and ranked config tips for dota cheats.
-https://dotacheats.com/blog/
+https://dotacheats.com/cheats/
 index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 1
 1
 === blog/dota-2-cheat-codes-guide/index.html ===
 Dota 2 cheat codes guide: console commands for | DotaCheats
 Full list of Dota 2 cheat codes for custom lobbies—gold, levels, vision, hero spawn and item commands.
-https://dotacheats.com/blog/dota-2-cheat-codes-guide/
+https://dotacheats.com/cheats/dota-2-cheat-codes-guide/
 index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 1
 1

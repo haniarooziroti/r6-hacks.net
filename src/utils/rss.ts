@@ -1,4 +1,4 @@
-import { blogPosts } from '../data/blog';
+import type { BlogPostFull } from '../data/blog/types';
 import { RSS_FEED_PATH, SITE_ORIGIN, absoluteAssetUrl, canonicalUrl } from '../config/seo';
 import { parseBlogDate } from './schema';
 import { blogPostPath } from './path';
@@ -12,9 +12,9 @@ function escapeXml(value: string): string {
     .replace(/'/g, '&apos;');
 }
 
-export function buildRssFeed(): string {
+export function buildRssFeed(posts: BlogPostFull[]): string {
   const feedUrl = `${SITE_ORIGIN}${RSS_FEED_PATH}`;
-  const items = blogPosts
+  const items = posts
     .map((post) => {
       const link = canonicalUrl(blogPostPath(post.slug));
       const pubDate = new Date(parseBlogDate(post.date)).toUTCString();
@@ -33,9 +33,9 @@ export function buildRssFeed(): string {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>DotaCheats Blog</title>
-    <link>${SITE_ORIGIN}/blog/</link>
-    <description>Dota 2 cheat guides, patch notes, and setup walkthroughs from dotacheats.com.</description>
+    <title>R6 Siege Cheats Blog</title>
+    <link>${SITE_ORIGIN}/cheats/</link>
+    <description>R6 cheat guides: aimbot, ESP, wallhack setup, patch-day checks, and checkout for Rainbow Six Siege PC.</description>
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${feedUrl}" rel="self" type="application/rss+xml" />

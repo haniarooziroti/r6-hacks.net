@@ -9,15 +9,22 @@ import type { IconName } from './icons/types';
 import { Badge } from '@/components/starwind/badge';
 import { Button } from '@/components/starwind/button';
 
+interface TocItem {
+  level: 'h2' | 'h3';
+  text: string;
+  id: string;
+}
+
 interface Props {
   post: BlogPostFull;
   related: BlogPostFull[];
+  tocItems?: TocItem[];
   class?: string;
 }
 
-const { post, related, class: className } = Astro.props;
+const { post, related, tocItems: tocFromProps, class: className } = Astro.props;
 
-const tocCount = post.body.filter((b) => b.type === 'h2').length;
+const tocCount = tocFromProps?.length ?? post.body.filter((b) => b.type === 'h2').length;
 
 function slugify(text: string): string {
   return text
@@ -26,20 +33,21 @@ function slugify(text: string): string {
     .replace(/^-|-$/g, '');
 }
 
-const toc = post.body
-  .filter((block) => block.type === 'h2' || block.type === 'h3')
-  .map((block) => ({
-    level: block.type as 'h2' | 'h3',
-    text: 'text' in block ? block.text : '',
-    id: slugify('text' in block ? block.text : ''),
-  }));
+const toc =
+  tocFromProps ??
+  post.body
+    .filter((block) => block.type === 'h2' || block.type === 'h3')
+    .map((block) => ({
+      level: block.type as 'h2' | 'h3',
+      text: 'text' in block ? block.text : '',
+      id: slugify('text' in block ? block.text : ''),
+    }));
 
 const productLinks: { label: string; href: string; icon: IconName }[] = [
-  { label: 'Dota 2 products', href: ROUTES.products, icon: 'sidebarHub' },
-  { label: 'Elite cheats', href: ROUTES.productsElite, icon: 'sidebarElite' },
-  { label: 'Skin Changer', href: productPath('unlock-all'), icon: 'sidebarSkin' },
-  { label: 'HWID Spoofer', href: productPath('hwid-spoofer'), icon: 'sidebarHwid' },
-  { label: 'UGC', href: productPath('ugc'), icon: 'sidebarUgc' },
+  { label: 'R6 module hub', href: ROUTES.products, icon: 'sidebarHub' },
+  { label: 'R6 aimbot', href: productPath('aimbot'), icon: 'crosshair' },
+  { label: 'Player ESP', href: productPath('esp'), icon: 'eye' },
+  { label: 'Gadget ESP ESP', href: productPath('gadget-esp'), icon: 'mapHack' },
 ];
 ---
 
@@ -120,13 +128,13 @@ const productLinks: { label: string; href: string; icon: IconName }[] = [
     </ul>
     <Button
       as="a"
-      href={checkoutPath('dota2')}
+      href={checkoutPath('r6')}
       variant="primary"
       size="sm"
       class="blog-sidebar__cta mt-2.5 w-full min-w-0 justify-start"
       aria-label={t.ui.checkoutAria}
     >
-      <span class="truncate">Buy Dota 2 Cheats</span>
+      <span class="truncate">Sidebar — R6 license checkout</span>
       <Icon name="arrowRight" size={16} class="shrink-0" />
     </Button>
   </section>

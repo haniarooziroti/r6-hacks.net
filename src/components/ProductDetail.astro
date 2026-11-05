@@ -2,7 +2,6 @@
 import '../styles/product-cheat-page.css';
 import type { ProductPage } from '../data/products';
 import type { BreadcrumbItem } from '../utils/schema';
-import { getRelatedBlogPostsForProduct } from '../data/blog';
 import ProductScreenshotGallery from './ProductScreenshotGallery.astro';
 import { getProductFaqs } from '../data/faq';
 import SiteFaqSection from './SiteFaqSection.astro';
@@ -13,7 +12,6 @@ import ProductHighlightsSection from './product/ProductHighlightsSection.astro';
 import ProductFeaturesSection from './product/ProductFeaturesSection.astro';
 import ProductDescriptionSection from './product/ProductDescriptionSection.astro';
 import ProductExperienceSection from './product/ProductExperienceSection.astro';
-import ProductRelatedGuidesSection from './product/ProductRelatedGuidesSection.astro';
 
 interface Props {
   product: ProductPage;
@@ -22,8 +20,6 @@ interface Props {
 
 const { product, breadcrumbs } = Astro.props;
 const productFaqs = getProductFaqs(product.slug, product.kind);
-const relatedPosts = getRelatedBlogPostsForProduct(product.relatedBlogSlugs, 6);
-
 const descriptionBlocks = [
   ...product.overview.paragraphs.map((text) => ({ type: 'p' as const, text })),
   ...(product.about ?? []),
@@ -64,8 +60,6 @@ const showDescToggle = descriptionBlocks.length > 2;
   acquisition={product.acquisition}
   productName={product.name}
 />
-
-<ProductRelatedGuidesSection posts={relatedPosts} productName={product.name} />
 
 <SiteFaqSection
   id="faq"

@@ -10,9 +10,10 @@ interface Props {
   description: string;
   breadcrumbLabel: string;
   sections: { heading: string; paragraphs: string[] }[];
+  keywordHeading?: string;
 }
 
-const { title, description, breadcrumbLabel, sections } = Astro.props;
+const { title, description, breadcrumbLabel, sections, keywordHeading } = Astro.props;
 ---
 
 <article class="py-8 md:py-12">
@@ -31,6 +32,7 @@ const { title, description, breadcrumbLabel, sections } = Astro.props;
     </header>
 
     <Prose class="mt-10 max-w-none text-left">
+      {keywordHeading ? <h2>{keywordHeading}</h2> : null}
       {sections.map((section) => (
         <section class="mt-8">
           <h2>{section.heading}</h2>
@@ -43,10 +45,10 @@ const { title, description, breadcrumbLabel, sections } = Astro.props;
 
     <div class="mt-12 flex flex-wrap justify-center gap-3 border-t border-border pt-8">
       <Button as="a" href={ROUTES.support} variant="primary" size="sm">
-        Contact support
+        Email support from legal pages
         <Icon name="mail" size={16} />
       </Button>
-      <Button as="a" href={ROUTES.home} variant="outline" size="sm">Back to home</Button>
+      <Button as="a" href={ROUTES.home} variant="outline" size="sm">Return to R6 homepage</Button>
     </div>
   </div>
 </article>

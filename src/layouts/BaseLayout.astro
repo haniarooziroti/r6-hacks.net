@@ -2,7 +2,6 @@
 import "@/styles/starwind.css";
 import { t } from '../i18n';
 import {
-  RSS_FEED_PATH,
   TWITTER_CREATOR,
   TWITTER_SITE,
   canonicalUrl,
@@ -11,7 +10,10 @@ import {
   DEFAULT_OG_IMAGE_WIDTH,
   GA_MEASUREMENT_ID,
   absoluteAssetUrl,
+  truncateMetaDescription,
 } from '../config/seo';
+import { MEDIA_CDN_ORIGIN } from '../config/media';
+import { resolveLogoAlt } from '../config/logoAlt';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import JsonLd from '../components/JsonLd.astro';
@@ -40,11 +42,13 @@ const {
   jsonLd,
 } = Astro.props;
 
+const metaDescription = truncateMetaDescription(description, 152);
 const canonical = canonicalUrl(Astro.url.pathname);
 const ogImageUrl = absoluteAssetUrl(ogImage);
 const robotsContent = noindex
   ? 'noindex, nofollow'
   : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+const logoAlt = resolveLogoAlt(Astro.url.pathname);
 ---
 
 <!doctype html>
@@ -63,20 +67,12 @@ const robotsContent = noindex
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
-    <meta name="description" content={description} />
+    <meta name="description" content={metaDescription} />
     <meta name="author" content={t.site.name} />
     <meta name="robots" content={robotsContent} />
     <meta name="googlebot" content={robotsContent} />
-    <meta name="theme-color" content="#7F3DEE" />
+    <meta name="theme-color" content="#0D0A14" />
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang="en" href={canonical} />
-    <link rel="alternate" hreflang="x-default" href={canonical} />
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title={`${t.site.name} Blog RSS`}
-      href={RSS_FEED_PATH}
-    />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -86,7 +82,7 @@ const robotsContent = noindex
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={metaDescription} />
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:image:secure_url" content={ogImageUrl} />
     <meta property="og:image:alt" content={ogImageAlt} />
@@ -112,7 +108,7 @@ const robotsContent = noindex
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:description" content={metaDescription} />
     <meta name="twitter:image" content={ogImageUrl} />
     <meta name="twitter:image:alt" content={ogImageAlt} />
     {TWITTER_SITE && <meta name="twitter:site" content={TWITTER_SITE} />}
@@ -120,6 +116,8 @@ const robotsContent = noindex
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href={MEDIA_CDN_ORIGIN} crossorigin />
+    <link rel="dns-prefetch" href={MEDIA_CDN_ORIGIN} />
     <link
       href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Manrope:wght@400;500;600&display=optional"
       rel="stylesheet"
@@ -139,11 +137,11 @@ const robotsContent = noindex
   </head>
   <body class="min-h-screen bg-background text-foreground">
     <button type="button" class="skip-link" data-skip-to-main>{t.ui.skipLink}</button>
-    <Header />
+    <Header logoAlt={logoAlt} />
     <main id="main-content">
       <slot />
     </main>
-    <Footer />
+    <Footer logoAlt={logoAlt} shareUrl={canonical} shareTitle={title} />
     <script>
       import '../scripts/site.ts';
     </script>

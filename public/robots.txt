@@ -1,8 +1,4 @@
 User-agent: *
 Allow: /
 
-Disallow: /go/
-
-Sitemap: https://dotacheats.com/sitemap.xml
-
-# RSS: https://dotacheats.com/rss.xml
+Sitemap: https://r6hacks.net/sitemap.xml

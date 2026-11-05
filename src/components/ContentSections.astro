@@ -1,34 +1,53 @@
 ---
 import { t } from '../i18n';
-import { getFeaturedBlogPosts } from '../data/blog';
-import WorkflowSection from './WorkflowSection.astro';
+import { getFeaturedForumPosts } from '../data/forums';
 import SectionHeader from './SectionHeader.astro';
-import BlogCard from './BlogCard.astro';
 import Icon from './icons/Icon.astro';
-import { ROUTES } from '../utils/path';
+import { ROUTES, forumPostPath } from '../utils/path';
 import SiteFaqSection from './SiteFaqSection.astro';
 import { getLandingFaqs } from '../data/faq';
 import { Button } from '@/components/starwind/button';
 
 const homeFaqs = getLandingFaqs();
-const featuredPosts = getFeaturedBlogPosts(3);
+const featuredThreads = getFeaturedForumPosts(3);
 ---
 
-<WorkflowSection />
-
-<section id="blog" class="border-y border-border bg-muted/20 py-16 md:py-24" aria-labelledby="blog-title">
+<section id="forum" class="border-y border-border bg-muted/20 py-16 md:py-24" aria-labelledby="forum-home-title">
   <div class="mx-auto max-w-6xl px-5">
-    <SectionHeader eyebrow={t.blog.eyebrow} title={t.blog.title} desc={t.blog.subtitle} titleId="blog-title" />
+    <SectionHeader
+      eyebrow={t.forumHome.eyebrow}
+      title={t.forumHome.title}
+      desc={t.forumHome.subtitle}
+      titleId="forum-home-title"
+    />
 
-    <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-y-10">
-      {featuredPosts.map((post, i) => (
-        <BlogCard post={post} index={i} />
+    <ul class="mt-12 space-y-4" role="list">
+      {featuredThreads.map((post) => (
+        <li>
+          <article class="rounded-2xl border border-border bg-card/60 p-5 transition hover:border-primary/30">
+            <p class="text-xs font-semibold uppercase tracking-wide text-primary">{post.category}</p>
+            <h3 class="mt-2 text-lg font-semibold text-foreground">
+              <a class="hover:text-primary" href={forumPostPath(post.slug)}>{post.title}</a>
+            </h3>
+            <p class="mt-2 text-sm text-muted-foreground">{post.excerpt}</p>
+            <div class="mt-4 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+              <span class="inline-flex items-center gap-1">
+                <Icon name="messageCircle" size={15} />
+                {post.commentsCount} replies
+              </span>
+              <span class="inline-flex items-center gap-1">
+                <Icon name="arrowUpRight" size={15} />
+                {post.upvotes} upvotes
+              </span>
+            </div>
+          </article>
+        </li>
       ))}
-    </div>
+    </ul>
 
     <div class="mt-10 flex justify-start lg:justify-center">
-      <Button as="a" href={ROUTES.blog} variant="outline">
-        {t.blog.viewAll}
+      <Button as="a" href={ROUTES.forum} variant="outline">
+        {t.forumHome.viewAll}
         <Icon name="arrowRight" size={17} />
       </Button>
     </div>

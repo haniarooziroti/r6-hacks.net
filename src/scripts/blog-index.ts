@@ -1,12 +1,12 @@
-/** Blog index topic filters + Starwind sort select. */
+/** Blog index: topic filters and pill sort; syncs ?topic= and ?sort= */
 export function initBlogIndexFilters(emptyMessage: string) {
   const grid = document.getElementById('blog-grid');
   const emptyEl = document.getElementById('blog-empty');
-  const sortRoot = document.getElementById('blog-sort-select');
+  const sortSelect = document.querySelector<HTMLSelectElement>('[data-pill-filter="blog-sort"]');
+  const countValue = document.querySelector('[data-blog-count-value]');
   if (!grid) return;
 
   const filters = document.querySelectorAll<HTMLButtonElement>('[data-blog-filter]');
-
   const cards = () => [...grid.querySelectorAll<HTMLElement>('[data-blog-card]')];
 
   const activeTag = () =>
@@ -14,21 +14,7 @@ export function initBlogIndexFilters(emptyMessage: string) {
       'data-blog-filter',
     ) ?? 'all';
 
-  const getSortSelectRoot = () => sortRoot?.querySelector<HTMLElement>('[data-sw-select]');
-
-  const getSort = () => {
-    const root = getSortSelectRoot();
-    const fromAttr = root?.getAttribute('data-value');
-    if (fromAttr) return fromAttr;
-    const input = sortRoot?.querySelector<HTMLInputElement>('[data-sw-select-input]');
-    return input?.value || 'newest';
-  };
-
-  const isBlogSortEvent = (event: Event) => {
-    const root = getSortSelectRoot();
-    if (!root || !sortRoot) return false;
-    return event.target === root || root.contains(event.target as Node);
-  };
+  const getSort = () => sortSelect?.value || 'newest';
 
   const compareCards = (a: HTMLElement, b: HTMLElement, sort: string) => {
     const tsA = Number(a.getAttribute('data-ts') ?? 0);
@@ -41,9 +27,23 @@ export function initBlogIndexFilters(emptyMessage: string) {
     return tsB - tsA;
   };
 
+  const syncUrl = (tag: string, sort: string, query: string) => {
+    const url = new URL(window.location.href);
+    if (tag === 'all') url.searchParams.delete('topic');
+    else url.searchParams.set('topic', tag.toLowerCase());
+    if (sort === 'newest') url.searchParams.delete('sort');
+    else url.searchParams.set('sort', sort);
+    if (query) url.searchParams.set('q', query);
+    else url.searchParams.delete('q');
+    window.history.replaceState({}, '', url);
+  };
+
+  const searchInput = document.querySelector<HTMLInputElement>('[data-blog-search]');
+
   const apply = () => {
     const tag = activeTag();
     const sort = getSort();
+    const q = (searchInput?.value ?? '').trim().toLowerCase();
     const items = cards();
 
     const sorted = [...items].sort((a, b) => compareCards(a, b, sort));
@@ -51,33 +51,58 @@ export function initBlogIndexFilters(emptyMessage: string) {
 
     let visibleCount = 0;
     items.forEach((el) => {
-      const match = tag === 'all' || el.getAttribute('data-tag') === tag;
-      el.classList.toggle('hidden', !match);
-      if (match) visibleCount += 1;
+      const matchTopic = tag === 'all' || el.getAttribute('data-tag') === tag;
+      const haystack = el.getAttribute('data-search') ?? '';
+      const matchSearch = !q || haystack.includes(q);
+      const show = matchTopic && matchSearch;
+      el.classList.toggle('hidden', !show);
+      if (show) visibleCount += 1;
     });
+
+    if (countValue) countValue.textContent = String(visibleCount);
 
     if (emptyEl) {
       emptyEl.classList.toggle('hidden', visibleCount > 0);
       emptyEl.textContent = emptyMessage;
     }
+
+    syncUrl(tag, sort, q);
+  };
+
+  const setFilter = (tag: string) => {
+    filters.forEach((b) => {
+      const active = (b.getAttribute('data-blog-filter') ?? 'all') === tag;
+      b.setAttribute('aria-pressed', String(active));
+      b.classList.toggle('is-active', active);
+    });
+    apply();
   };
 
   filters.forEach((btn) => {
     btn.addEventListener('click', () => {
-      filters.forEach((b) => b.setAttribute('aria-pressed', 'false'));
-      btn.setAttribute('aria-pressed', 'true');
-      apply();
+      setFilter(btn.getAttribute('data-blog-filter') ?? 'all');
     });
   });
 
-  const onSortChange = (event: Event) => {
-    if (!isBlogSortEvent(event)) return;
+  sortSelect?.addEventListener('change', apply);
+  searchInput?.addEventListener('input', apply);
+
+  const params = new URLSearchParams(window.location.search);
+  const topicParam = params.get('topic');
+  const sortParam = params.get('sort');
+  const qParam = params.get('q');
+  if (qParam && searchInput) searchInput.value = qParam;
+  if (sortParam && sortSelect) {
+    const allowed = ['newest', 'oldest', 'short', 'long'];
+    if (allowed.includes(sortParam)) sortSelect.value = sortParam;
+  }
+  if (topicParam) {
+    const match = [...filters].find(
+      (b) => (b.getAttribute('data-blog-filter') ?? '').toLowerCase() === topicParam.toLowerCase(),
+    );
+    if (match) setFilter(match.getAttribute('data-blog-filter') ?? 'all');
+    else apply();
+  } else {
     apply();
-  };
-
-  document.addEventListener('starwind:value-change', onSortChange);
-
-  // Starwind select hydrates after first paint — re-apply once ready.
-  requestAnimationFrame(apply);
-  window.setTimeout(apply, 0);
+  }
 }

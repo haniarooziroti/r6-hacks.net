@@ -1,8 +1,3 @@
-/**
- * Central titles/descriptions for high-traffic routes.
- * After Search Console shows impressions, edit the matching path here and redeploy.
- */
-
 export interface PageSeoEntry {
   title: string;
   description: string;
@@ -10,59 +5,86 @@ export interface PageSeoEntry {
 
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
-    // gscNote: Keep primary keyword "dota 2 cheats" near front; trim if title truncates in SERP.
-    title: 'Dota 2 Cheats & Hacks | Scripts, Map Hack & ESP',
+    title: '[R6] Esp, Aimbot & Wallhack',
     description:
-      'Dota 2 cheats for PC ranked: scripts, map hack, zoom hack, and skin changer tiers updated every patch at dotacheats.com.',
+      'Rainbow Six Siege cheats with ESP, aimbot, and wallhack modules for PC ranked. Compare operator overlays, forum configs, and secure checkout at r6hacks.net.',
   },
-  '/products/dota-2-cheats/': {
-    title: 'Dota 2 Elite Cheats & Utility Products',
+  '/products/rainbow-six-cheats/': {
+    title: 'Rainbow Six Siege Cheats | Aimbot, ESP & Gadget ESP',
     description:
-      'Elite dota 2 cheats plus HWID spoofer, UGC tools, and Skin Changer utilities for Steam ranked on dotacheats.com.',
+      'Rainbow Six Siege cheat modules for PC: aim assist, player ESP, wallhack, gadget ESP, triggerbot, and radar. Pick a module and continue to checkout.',
   },
-  '/products/dota-2-cheats/elite/': {
-    title: 'Dota 2 Elite Cheats | Bots & Full Map Hack',
+  '/products/rainbow-six-cheats/aimbot/': {
+    title: 'R6 Aimbot Module | FOV, Smoothing & Hitbox Control',
     description:
-      'Elite tier: auto farm bot, kill steal, skin changer, full map hack suite, and priority patch delivery.',
+      'Rainbow Six Siege aimbot settings with FOV ring, smoothing sliders, and hitbox priority for ranked and unranked on PC.',
   },
-  '/products/dota-2-cheats/utilities/': {
-    title: 'Dota 2 Utilities | HWID, UGC & Skin Changer',
+  '/products/rainbow-six-cheats/esp/': {
+    title: 'R6 ESP & Wallhack | Operator Boxes & Skeleton',
     description:
-      'Choose HWID Spoofer, UGC, or Skin Changer—when each utility fits and links to full product pages.',
+      'Player ESP for Rainbow Six Siege with skeleton, corner boxes, snaplines, and readable colors for close-range site takes.',
   },
-  '/blog/': {
-    title: 'Dota 2 Cheats Guides & Patch Notes',
+  '/products/rainbow-six-cheats/wallhack/': {
+    title: 'R6 Wallhack | Soft-Cover Player Highlights',
     description:
-      'Setup guides, Lite vs Pro comparisons, VAC patch checklists, and ranked config tips for dota cheats.',
+      'Wallhack overlays for Rainbow Six Siege that mark defenders through soft cover with tunable opacity for ranked play.',
   },
-  '/forum/': {
-    title: 'Dota 2 Community Forum | DotaCheats',
-    description: 'Join Dota players to discuss heroes, builds, patch changes, guides, and community moments.',
+  '/products/rainbow-six-cheats/gadget-esp/': {
+    title: 'R6 Gadget ESP | Claymore, Drone & Defender Traps',
+    description:
+      'Gadget ESP for Rainbow Six Siege—attacker drones, claymores, defender traps, and utility markers on a clean overlay.',
+  },
+  '/products/rainbow-six-cheats/triggerbot/': {
+    title: 'R6 Triggerbot | Delay & Hold-Key Setup',
+    description:
+      'Triggerbot module for Rainbow Six Siege with humanized delay, hold keys, and team filters for PC sessions.',
+  },
+  '/products/rainbow-six-cheats/radar/': {
+    title: 'R6 Radar Hack | 2D Site Awareness Overlay',
+    description:
+      'Compact 2D radar for Rainbow Six Siege with zoom, range caps, and colors matched to your ESP profile.',
+  },
+  '/cheats/': {
+    title: 'R6 Cheat Guides | Aimbot, ESP & Setup Articles',
+    description:
+      'Rainbow Six Siege cheat guides covering aimbot tuning, ESP layouts, loader setup, patch-day checks, and checkout tips.',
+  },
+  '/forums/': {
+    title: 'Rainbow Six Siege Cheats Forum | Config & Checkout Talk',
+    description:
+      'Forums for Rainbow Six Siege players discussing aimbot smooth levels, ESP colors, gadget ESP, loader order, and checkout questions.',
+  },
+  '/reviews/': {
+    title: 'R6 Cheat Reviews | 100+ Player Feedback',
+    description:
+      'More than 100 Rainbow Six Siege cheat reviews on aimbot feel, ESP clarity, loader setup, and support response times.',
   },
   '/faq/': {
-    title: 'FAQ | Dota 2 Cheats, Products & Setup',
+    title: 'FAQ | Rainbow Six Siege Cheats & Modules',
     description:
-      'Answers on cheat tiers, map hack, scripts, HWID tools, checkout, and blog guides at dotacheats.com.',
+      'Answers on Rainbow Six Siege cheat modules, PC requirements, checkout delivery, config saves, and ranked playlist use.',
   },
   '/terms/': {
-    title: 'Terms & Conditions | DotaCheats',
-    description:
-      'Purchase terms, license use, and refund policy for DotaCheats products sold through dotacheats.com.',
+    title: 'Terms & Conditions | r6hacks.net',
+    description: 'Purchase terms, license use, and refund policy for Rainbow Six Siege cheat access sold through r6hacks.net.',
   },
   '/privacy/': {
-    title: 'Privacy Policy | DotaCheats',
-    description:
-      'How dotacheats.com uses analytics, cookies, and contact data when you browse or request support.',
+    title: 'Privacy Policy | r6hacks.net',
+    description: 'How r6hacks.net uses analytics, cookies, and contact data when you browse or request support.',
   },
   '/about/': {
-    title: 'About DotaCheats',
+    title: 'About r6hacks.net',
     description:
-      'What DotaCheats publishes: Dota 2 cheat tiers, utilities, guides, and status notes at dotacheats.com.',
+      'What we publish for Rainbow Six Siege PC players: module pages, setup articles, forums, and status notes at r6hacks.net.',
   },
   '/support/': {
-    title: 'Support | DotaCheats',
+    title: 'Support | Rainbow Six Siege Cheats Help',
+    description: 'Get help with loader setup, configs, and checkout for Rainbow Six Siege cheat modules on PC.',
+  },
+  '/go/r6-siege/': {
+    title: 'Get Rainbow Six Siege Cheat Access | Secure Checkout',
     description:
-      'Get help with loader setup, HWID, and checkout for Dota 2 cheat tiers and utilities.',
+      'Rainbow Six Siege cheats with ESP, aimbot, and wallhack—continue to secure checkout for PC module access.',
   },
 };
 

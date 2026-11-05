@@ -22,6 +22,8 @@ interface Props {
   contentAlign?: 'left' | 'center';
   id?: string;
   class?: string;
+  showHeader?: boolean;
+  headingLevel?: 'h1' | 'h2';
 }
 
 const {
@@ -36,20 +38,21 @@ const {
   contentAlign = 'center',
   id: sectionId,
   class: className,
+  showHeader = true,
+  headingLevel = 'h2',
 } = Astro.props;
 
 const topicLabels: Record<FaqTopic, string> = {
   all: 'All',
   plans: 'Plans',
-  esp: 'Map hack / ESP',
-  scripts: 'Scripts',
+  esp: 'ESP / wallhack',
+  aim: 'Aim assist',
   safety: 'Safety',
   products: 'Products',
-  blog: 'Blog',
   setup: 'Setup',
 };
 
-const filters = filterTopics ?? (['all', 'plans', 'esp', 'scripts', 'safety', 'products'] as FaqTopic[]);
+const filters = filterTopics ?? (['all', 'plans', 'esp', 'aim', 'safety', 'products'] as FaqTopic[]);
 ---
 
 <section
@@ -60,13 +63,16 @@ const filters = filterTopics ?? (['all', 'plans', 'esp', 'scripts', 'safety', 'p
 >
   <div class="mx-auto max-w-6xl px-5">
     <div class:list={[contentAlign === 'center' && 'mx-auto max-w-3xl', contentAlign === 'left' && 'product-detail__narrow max-w-3xl']}>
-    <SectionHeader
-      eyebrow={eyebrow}
-      title={title}
-      desc={subtitle}
-      titleId={titleId}
-      centered={centered}
-    />
+    {showHeader && (
+      <SectionHeader
+        eyebrow={eyebrow}
+        title={title}
+        desc={subtitle}
+        titleId={titleId}
+        centered={centered}
+        headingLevel={headingLevel}
+      />
+    )}
 
     {
       showFilters && (

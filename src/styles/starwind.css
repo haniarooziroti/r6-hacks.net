@@ -117,9 +117,9 @@
 }
 
 .dark {
-  --background: var(--color-neutral-950);
-  --foreground: var(--color-neutral-50);
-  --card: var(--color-neutral-900);
+  --background: #0d0a14;
+  --foreground: #f4f0fa;
+  --card: #0f0c18;
   --card-foreground: var(--color-neutral-50);
   --popover: var(--color-neutral-900);
   --popover-foreground: var(--color-neutral-50);
@@ -129,9 +129,9 @@
   --secondary: var(--color-neutral-800);
   --secondary-foreground: var(--color-neutral-50);
   --secondary-accent: var(--color-neutral-50);
-  --muted: var(--color-neutral-800);
-  --muted-foreground: var(--color-neutral-400);
-  --accent: var(--color-neutral-700);
+  --muted: #0e0b17;
+  --muted-foreground: #a89bb8;
+  --accent: #0f0c19;
   --accent-foreground: var(--color-neutral-50);
   --info: var(--color-sky-300);
   --info-foreground: var(--color-sky-950);
@@ -146,7 +146,7 @@
   --outline: var(--color-neutral-500);
 
   /* sidebars variables */
-  --sidebar-background: var(--color-neutral-900);
+  --sidebar-background: #0f0c18;
   --sidebar-foreground: var(--color-neutral-50);
   --sidebar-primary: #7f3dee;
   --sidebar-primary-foreground: #ffffff;
