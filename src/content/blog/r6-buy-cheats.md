@@ -1,5 +1,5 @@
 ---
-title: "How to buy R6 Siege cheats and get R6 access in 2026: checkout to first launch"
+title: "How to buy R6 Siege cheats and get R6 access in 2026: checkout to first launch guide"
 description: "Buying R6 access for the first time? Here's how checkout, delivery and first launch work, plus what to check on your PC before you pay."
 category: Guides
 publishDate: 2026-10-05
@@ -31,7 +31,7 @@ Monthly is $35 for 30 days. Lifetime is $150 once. The feature list is the same 
 
 ## Check out
 
-Open the [R6 product page](/products/rainbow-six-cheats/), choose your duration and hit Buy Now. Use an email you actually check. Your access details go there.
+Open the [buy guide — R6 module comparison](/products/rainbow-six-cheats/), choose your duration and hit Buy Now. Use an email you actually check. Your access details go there.
 
 ## First launch
 

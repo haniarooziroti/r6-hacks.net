@@ -21,11 +21,11 @@ function link(text: string, href: string): string {
   return `<a href="${normalizeInternalPath(href)}">${text}</a>`;
 }
 
-const productsHub = link('R6 modules', ROUTES.products);
-const aimPage = link('R6 aimbot page', productPath('aimbot'));
-const espPage = link('player ESP page', productPath('esp'));
-const faqPage = link('full FAQ', ROUTES.faq);
-const forum = link('community forum', ROUTES.forum);
+const productsHub = link('FAQ answer — R6 module list', ROUTES.products);
+const aimPage = link('FAQ answer — R6 aimbot page', productPath('aimbot'));
+const espPage = link('FAQ answer — player ESP page', productPath('esp'));
+const faqPage = link('FAQ answer — full FAQ index', ROUTES.faq);
+const forum = link('FAQ answer — community forum', ROUTES.forum);
 
 export const siteFaqs: SiteFaqItem[] = [
   {

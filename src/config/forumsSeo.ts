@@ -16,7 +16,7 @@ const FORUM_THREAD_SEO: Record<string, ForumThreadSeo> = {
       'Smooth aim for ranked Rainbow Six Siege—what FOV and smoothing combo stays believable in killcams without looking like a highlight reel?',
     logoAlt: 'Smooth aim – Aimbot – logo',
     sidebarHeading: 'Ranked aim: R6 Siege Cheats',
-    h1: 'Smooth aim combo for ranked Siege cheats: what level keeps killcams believable?',
+    h1: 'Smooth aim combo for ranked Siege cheats: what smoothing level keeps killcams believable?',
     extraBody: [
       'Players usually start with a smaller FOV circle on ARs, then add just enough smoothing that the replay still looks hand-driven.',
       'If tracking through hard cover looks too perfect, drop FOV and smoothing about ten percent and retest in unranked before ranked queues.',

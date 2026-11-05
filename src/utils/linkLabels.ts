@@ -53,6 +53,11 @@ const BREADCRUMB_PATH_LABEL: Record<string, string> = {
 };
 
 export function breadcrumbAnchorLabel(name: string, path: string): string {
+  // Prefer the crumb name so two crumbs that share a path (e.g. Forum + category → /forums/) stay unique.
   const normalized = path.endsWith('/') || path === '/' ? path : `${path}/`;
-  return BREADCRUMB_PATH_LABEL[normalized] ?? BREADCRUMB_PATH_LABEL[path] ?? `Breadcrumb: ${name}`;
+  const fromPath = BREADCRUMB_PATH_LABEL[normalized] ?? BREADCRUMB_PATH_LABEL[path];
+  if (fromPath && name.toLowerCase() !== 'home' && fromPath === BREADCRUMB_PATH_LABEL['/forums/'] && name.toLowerCase() !== 'forum') {
+    return `Breadcrumb: ${name} forum topic`;
+  }
+  return fromPath ?? `Breadcrumb: ${name}`;
 }

@@ -47,7 +47,7 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/cheats/': {
     title: 'Cheats Guides for R6 Aimbot, ESP and Setup Articles',
     description:
-      'Rainbow Six Siege guides covering aimbot tuning, ESP layouts, setup steps, patch-day checks, checkout tips, and risk notes for PC.',
+      'Rainbow Six Siege cheats guides covering aimbot tuning, ESP layouts, setup steps, patch-day checks, checkout tips, and risk notes for PC.',
   },
   '/forums/': {
     title: 'Rainbow Six Siege Cheats Forum | Config & Checkout Talk',

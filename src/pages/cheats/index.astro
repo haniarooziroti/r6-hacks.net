@@ -21,6 +21,17 @@ const breadcrumbs = [
 
 const allPosts = await loadBlogPosts();
 const articleCount = allPosts.length;
+
+/** Hub-only title tweaks to keep "cheats" ≤12 on this page (article H1s unchanged). */
+const HUB_TITLE_OVERRIDE: Record<string, string> = {
+  'r6-aimbot-setup': 'Aim Circle Size and Smoothing Setup for R6 Siege',
+  'r6-cheat-risk': 'Risk and Ban Exposure: An Honest Look at R6 Siege',
+  'r6-buy-cheats': 'How to buy R6 Siege access in 2026: checkout to first launch guide',
+};
+
+const hubPosts = allPosts.map((post) =>
+  HUB_TITLE_OVERRIDE[post.slug] ? { ...post, title: HUB_TITLE_OVERRIDE[post.slug] } : post,
+);
 ---
 
 <BaseLayout
@@ -36,7 +47,7 @@ const articleCount = allPosts.length;
       <Breadcrumbs items={breadcrumbs} />
 
       <header class="blog-page__header">
-        <h1 class="blog-page__title">Guides for R6 aimbot, ESP and setup articles</h1>
+        <h1 class="blog-page__title">Cheats guides for R6 aimbot, ESP and setup articles</h1>
         <p class="blog-page__intro">{t.blog.subtitle}</p>
       </header>
 
@@ -47,7 +58,7 @@ const articleCount = allPosts.length;
       </p>
 
       <div id="blog-grid" class="blog-grid" aria-live="polite">
-        {allPosts.map((post, index) => (
+        {hubPosts.map((post, index) => (
           <BlogCard post={post} eager={index === 0} />
         ))}
       </div>

@@ -133,7 +133,7 @@ const faqItems = (entry.data.faq ?? []).map((item, i) => ({
             title="Compare R6 modules"
             html="See aimbot, ESP, radar, and Gadget ESP on the product hub before you change configs."
             href={PRODUCT_URL}
-            buttonLabel="Open R6 product hub from article"
+            buttonLabel={`Open R6 module hub from ${post.slug}`}
           />
 
           <Prose class="blog-article__prose prose-headings:scroll-mt-24 max-w-none text-left">
@@ -144,7 +144,7 @@ const faqItems = (entry.data.faq ?? []).map((item, i) => ({
             title="Get R6 access"
             html="Monthly and lifetime keys include the same module list—pick the window that fits your season."
             href={checkoutPath('r6')}
-            buttonLabel="Start R6 license checkout from article"
+            buttonLabel={`Start R6 checkout from ${post.slug}`}
           />
 
           {related.length > 0 && (
@@ -160,11 +160,14 @@ const faqItems = (entry.data.faq ?? []).map((item, i) => ({
 
           <nav class="blog-article__actions mt-10 flex flex-wrap gap-3" aria-label="Continue reading">
             <Button as="a" href={checkoutPath('r6')} variant="primary" aria-label={t.ui.checkoutAria}>
-              Finish article — go to R6 checkout
+              {`Finish ${post.slug} — go to R6 checkout`}
               <Icon name="arrowRight" size={17} />
             </Button>
-            <Button as="a" href={ROUTES.products} variant="outline">Article footer — R6 modules</Button>
-            <Button as="a" href={ROUTES.blog} variant="outline">Article footer — all setup guides <Icon name="arrowRight" size={17} /></Button>
+            <Button as="a" href={ROUTES.products} variant="outline">{`Footer modules after ${post.slug}`}</Button>
+            <Button as="a" href={ROUTES.blog} variant="outline">
+              {`Footer guides after ${post.slug}`}
+              <Icon name="arrowRight" size={17} />
+            </Button>
           </nav>
 
           {(prevPost || nextPost) && (
