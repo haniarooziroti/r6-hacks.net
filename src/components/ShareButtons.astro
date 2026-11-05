@@ -5,9 +5,11 @@ interface Props {
   url: string;
   title: string;
   class?: string;
+  /** When set (e.g. "site"), share links get unique accessible names without changing visible labels. */
+  labelSuffix?: string;
 }
 
-const { url, title, class: className } = Astro.props;
+const { url, title, class: className, labelSuffix } = Astro.props;
 
 const encodedUrl = encodeURIComponent(url);
 const encodedTitle = encodeURIComponent(title);
@@ -39,6 +41,13 @@ const links = [
     label: 'Share on Telegram',
   },
 ];
+
+function shareLinkLabel(item: (typeof links)[number]): string {
+  if (labelSuffix) {
+    return `Share ${labelSuffix} on ${item.name}`;
+  }
+  return item.label;
+}
 ---
 
 <div class:list={['share-buttons', className]} data-share-root>
@@ -51,9 +60,16 @@ const links = [
           class="share-buttons__link"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={item.label}
+          aria-label={shareLinkLabel(item)}
         >
-          {item.name}
+          {labelSuffix ? (
+            <>
+              <span class="sr-only">{shareLinkLabel(item)}</span>
+              <span aria-hidden="true">{item.name}</span>
+            </>
+          ) : (
+            item.name
+          )}
         </a>
       </li>
     ))}

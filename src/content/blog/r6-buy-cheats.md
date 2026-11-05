@@ -39,7 +39,7 @@ Run the loader, start Rainbow Six Siege, and press INSERT to open the menu. Don'
 
 ## If something goes wrong
 
-Nothing in your inbox? Check spam, then open a ticket at [support](/support/) with your order email. For loader errors, start with the [troubleshooting guide](/cheats/r6-loader-fix/).
+Nothing in your inbox? Check spam, then open a ticket at [contact the support team](/support/) with your order email. For loader errors, start with the [troubleshooting guide](/cheats/r6-loader-fix/).
 
 ## Ready?
 

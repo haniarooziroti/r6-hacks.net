@@ -36,7 +36,7 @@ const legalLinks = [
         </a>
         <p class="text-sm text-muted-foreground">{t.footer.tagline}</p>
         {shareUrl && shareTitle ? (
-          <ShareButtons url={shareUrl} title={shareTitle} class="share-buttons--compact" />
+          <ShareButtons url={shareUrl} title={shareTitle} class="share-buttons--compact" labelSuffix="site" />
         ) : null}
       </div>
 
