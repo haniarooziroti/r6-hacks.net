@@ -5,7 +5,7 @@ export interface PageSeoEntry {
 
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
-    title: 'Aimbot for Rainbow Six Siege ESP & Wallhack Tools',
+    title: 'Aimbot for Rainbow Six Siege: ESP and Wallhack Tools',
     description:
       'Rainbow Six Siege cheats with ESP, aimbot, and wallhack modules for PC ranked. Compare operator overlays, forum configs, and secure checkout at r6hacks.net.',
   },
@@ -45,9 +45,9 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'Compact 2D radar for Rainbow Six Siege with zoom, range caps, and colors matched to your ESP profile.',
   },
   '/cheats/': {
-    title: 'Cheats Guides for R6 Aimbot, ESP & Setup Articles',
+    title: 'Cheats Guides for R6 Aimbot, ESP and Setup Articles',
     description:
-      'Rainbow Six Siege cheats guides covering aimbot tuning, ESP layouts, loader setup, patch-day checks, checkout tips, and risk notes for PC.',
+      'Rainbow Six Siege guides covering aimbot tuning, ESP layouts, setup steps, patch-day checks, checkout tips, and risk notes for PC.',
   },
   '/forums/': {
     title: 'Rainbow Six Siege Cheats Forum | Config & Checkout Talk',
@@ -60,7 +60,7 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'More than 100 Rainbow Six Siege cheat reviews on aimbot feel, ESP clarity, loader setup, and support response times.',
   },
   '/faq/': {
-    title: 'Rainbow Six Siege FAQ | Modules, Checkout & Setup',
+    title: 'Rainbow Six Siege FAQ | Modules, Checkout and Setup',
     description:
       'Answers on Rainbow Six Siege cheat modules, PC requirements, checkout delivery, config saves, ranked playlist use, and loader steps before you buy.',
   },

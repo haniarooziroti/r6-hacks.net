@@ -118,13 +118,13 @@ const faqItems = (entry.data.faq ?? []).map((item, i) => ({
           />
 
           <header class="blog-article__header">
-            {keywordHeading ? <h2 class="text-lg font-semibold text-foreground">{keywordHeading}</h2> : null}
             <div class="flex flex-wrap gap-2">
               <Badge variant="secondary">{post.tag}</Badge>
               <Badge variant="outline">{post.date}</Badge>
               <Badge variant="outline">{post.readTime}</Badge>
             </div>
             <h1 class="blog-article__title">{post.title}</h1>
+            {keywordHeading ? <h2 class="text-lg font-semibold text-foreground">{keywordHeading}</h2> : null}
             <p class="blog-article__lead">{post.desc}</p>
             <ShareButtons url={canonicalUrl(postPath)} title={post.title} />
           </header>
@@ -163,8 +163,8 @@ const faqItems = (entry.data.faq ?? []).map((item, i) => ({
               Finish article — go to R6 checkout
               <Icon name="arrowRight" size={17} />
             </Button>
-            <Button as="a" href={ROUTES.products} variant="outline">See R6 modules</Button>
-            <Button as="a" href={ROUTES.blog} variant="outline">Back to cheat guides <Icon name="arrowRight" size={17} /></Button>
+            <Button as="a" href={ROUTES.products} variant="outline">Article footer — R6 modules</Button>
+            <Button as="a" href={ROUTES.blog} variant="outline">Article footer — all setup guides <Icon name="arrowRight" size={17} /></Button>
           </nav>
 
           {(prevPost || nextPost) && (

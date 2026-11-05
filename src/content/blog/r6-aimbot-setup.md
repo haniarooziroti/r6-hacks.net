@@ -1,5 +1,5 @@
 ---
-title: "Aim circle size for R6 Siege cheats: smoothing and bone choice"
+title: "Aim Circle Size and Smoothing Setup for R6 Siege Cheats"
 description: "Circle: How to set up R6 aim assist so it helps your tracking without looking like a screen-snap. Starting values for ranked, ranked and gadget utility."
 category: Setup
 publishDate: 2026-10-12
@@ -59,4 +59,4 @@ Miss sometimes. Don't prefire people you couldn't know about. Turn the strength 
 
 Aim assist is part of the full R6 menu on both plans.
 
-[See R6 plans](/products/rainbow-six-cheats/)
+[Aimbot guide — open R6 plans](/products/rainbow-six-cheats/)

@@ -36,7 +36,7 @@ const articleCount = allPosts.length;
       <Breadcrumbs items={breadcrumbs} />
 
       <header class="blog-page__header">
-        <h1 class="blog-page__title">Cheats guides: aimbot, ESP & setup articles</h1>
+        <h1 class="blog-page__title">Guides for R6 aimbot, ESP and setup articles</h1>
         <p class="blog-page__intro">{t.blog.subtitle}</p>
       </header>
 
@@ -58,11 +58,12 @@ const articleCount = allPosts.length;
         <h2 id="blog-buy-title" class="blog-buy-strip__title">Rainbow Six Siege aimbot, ESP and wallhack</h2>
         <p class="blog-buy-strip__text">
           Compare aim assist, player ESP, gadget markers, and radar modules—then continue to checkout when you are ready.
+          Also see the <a href="/faq/">Rainbow Six Siege FAQ</a>, <a href="/reviews/">player reviews</a>, <a href="/about/">about this site</a>, <a href="/go/r6-siege/">checkout overview</a>, <a href="/privacy/">privacy policy</a>, and <a href="/terms/">terms of use</a>.
         </p>
         <div class="blog-buy-strip__actions">
-          <Button as="a" href={PRODUCT_URL} variant="primary">View R6 modules</Button>
-          <Button as="a" href={checkoutPath('r6')} variant="outline">Pricing and checkout</Button>
-          <Button as="a" href={ROUTES.forums} variant="outline">Browse player forums</Button>
+          <Button as="a" href={PRODUCT_URL} variant="primary">Hub strip — R6 module list</Button>
+          <Button as="a" href={checkoutPath('r6')} variant="outline">Hub strip — pricing checkout</Button>
+          <Button as="a" href={ROUTES.forums} variant="outline">Hub strip — player forums</Button>
         </div>
       </aside>
     </div>

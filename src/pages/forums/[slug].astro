@@ -53,7 +53,7 @@ const relatedPosts = [
                 {extraBody.map((paragraph) => <p>{paragraph}</p>)}
               </div>
               <div class="forum-post-actions forum-post-actions--detail">
-                <a href="#comments"><Icon name="messageCircle" size={16} /> {post.commentsCount} replies</a>
+                <a href="#comments"><Icon name="messageCircle" size={16} /> Jump to replies on this thread</a>
               </div>
               <section class="forum-comments" id="comments" aria-labelledby="comments-title">
                 <div class="forum-comments__heading"><h2 id="comments-title">Replies <span>{post.commentsCount}</span></h2></div>
@@ -86,7 +86,7 @@ const relatedPosts = [
               <div class="forum-about__title"><span class={`forum-community-avatar tone-${post.categoryTone}`}>m</span><h2>{sidebarHeading}</h2></div>
               <p>More threads on {post.category.toLowerCase()} settings and R6 PC play.</p>
               <div class="forum-stats"><span><b>{forumPosts.length}</b> threads</span><span><b>{forumPosts.filter((item) => item.category === post.category).length}</b> in this topic</span></div>
-              <a class="forum-join" href="/forums/">Browse all forum topics</a>
+              <a class="forum-join" href="/forums/">Thread sidebar — all forum topics</a>
             </div>
           </section>
           <section class="forum-side-card forum-related-card" aria-labelledby="forum-related-title">
@@ -94,15 +94,15 @@ const relatedPosts = [
             <ul class="forum-related-list">
               {relatedPosts.map((item) => (
                 <li>
+                  <span class="forum-related-list__category">{item.category}</span>
                   <a href={`/forums/${item.slug}/`}>
-                    <span class="forum-related-list__category">{item.category}</span>
                     <b>{item.title}</b>
-                    <span class="forum-related-list__meta">{item.commentsCount} replies <Icon name="arrowRight" size={14} /></span>
                   </a>
+                  <span class="forum-related-list__meta">{item.commentsCount} replies <Icon name="arrowRight" size={14} /></span>
                 </li>
               ))}
             </ul>
-            <a class="forum-related-card__all" href="/forums/">View all threads <Icon name="arrowRight" size={14} /></a>
+            <a class="forum-related-card__all" href="/forums/">Related card — full thread index <Icon name="arrowRight" size={14} /></a>
           </section>
         </aside>
       </div>

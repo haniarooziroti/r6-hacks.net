@@ -1,5 +1,5 @@
 ---
-title: "Risk and ban exposure: an honest R6 Siege cheats safety guide"
+title: "Risk and Ban Exposure: An Honest Look at R6 Siege Cheats"
 description: "No tool is risk-free. Here's what raises or lowers your chances of trouble in R6, what we can't promise, and why free downloads are a bad bet."
 category: Guides
 publishDate: 2026-10-27
@@ -51,4 +51,4 @@ Paid doesn't make it risk-free. It does mean updates, a status page and someone 
 
 Using cheats carries risk and you're the one who accepts it. If you're comfortable with that, we'll give you a good tool, clear guidance and honest updates. If you're not, don't buy.
 
-[See R6 plans](/products/rainbow-six-cheats/)
+[Risk guide — open R6 plans](/products/rainbow-six-cheats/)

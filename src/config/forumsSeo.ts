@@ -11,12 +11,12 @@ export interface ForumThreadSeo {
 
 const FORUM_THREAD_SEO: Record<string, ForumThreadSeo> = {
   'aimbot-settings-smooth-level-ranked': {
-    title: 'Smooth FOV Combo for Ranked Killcams | R6 Cheats',
+    title: 'Smooth FOV and Smoothing Combo for Ranked Killcams',
     description:
       'Smooth aim for ranked Rainbow Six Siege—what FOV and smoothing combo stays believable in killcams without looking like a highlight reel?',
     logoAlt: 'Smooth aim – Aimbot – logo',
     sidebarHeading: 'Ranked aim: R6 Siege Cheats',
-    h1: 'Smooth aim for ranked Siege cheats: what level keeps killcams believable?',
+    h1: 'Smooth aim combo for ranked Siege cheats: what level keeps killcams believable?',
     extraBody: [
       'Players usually start with a smaller FOV circle on ARs, then add just enough smoothing that the replay still looks hand-driven.',
       'If tracking through hard cover looks too perfect, drop FOV and smoothing about ten percent and retest in unranked before ranked queues.',
@@ -28,7 +28,7 @@ const FORUM_THREAD_SEO: Record<string, ForumThreadSeo> = {
   'first-time-loader-r6-siege': {
     title: 'Loader – First R6 Install Order on Win11 | R6 Cheats',
     description:
-      'Key hit inbox fast. BattlEye already running. Client first or game first on Win11? First Rainbow Six Siege install tips from players who finished setup the same day.',
+      'Loader first-install tips: key in inbox, BattlEye running. Client first or game first on Win11? Rainbow Six Siege setup tips from players who finished.',
     logoAlt: 'Loader – Aimbot – logo',
     sidebarHeading: 'Setup: R6 Siege Cheats',
     h1: 'First Rainbow Six Siege loader install for cheats on Win11—launch order?',
@@ -38,6 +38,9 @@ const FORUM_THREAD_SEO: Record<string, ForumThreadSeo> = {
       'If Windows security features flip after an update, re-check them before opening a support ticket—most first-day failures stop there.',
       'Keep the delivery email open while you install so you can paste the key without restarting the client mid-setup.',
       'After a clean launch, save the stock preset under a new name before you change FOV or ESP density.',
+      'The FAQ and requirements guides on this site list the same Windows 10/11 checklist: Memory integrity on, TPM ready for use, and Secure Boot State On in msinfo32 before you pay.',
+      'Checkout delivery puts access details on the order email; if nothing arrives, check spam, then open support with that address—same path the buy and troubleshooting articles describe.',
+      'Press INSERT after Siege starts to open the menu, enable player ESP first for one match, then add aim assist—learning one module at a time matches the setup articles already published here.',
     ],
   },
   'triggerbot-delay-ms-r6': {
