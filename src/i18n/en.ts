@@ -32,7 +32,7 @@ export const en: Translations = {
   },
   hero: {
     status: 'Rainbow Six Siege — PC modules online',
-    eyebrow: 'Rainbow Six Siege on PC',
+    eyebrow: 'R6 on PC',
     titleLine1: 'R6 hacks',
     titleLine2: 'ESP, aimbot & wallhack',
     subtitle:
