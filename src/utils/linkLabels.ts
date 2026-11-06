@@ -38,26 +38,25 @@ export const MOBILE_NAV_LABEL: Record<string, string> = {
 };
 
 const BREADCRUMB_PATH_LABEL: Record<string, string> = {
-  '/': 'Breadcrumb: site home',
-  '/products/rainbow-six-cheats/': 'Breadcrumb: all R6 modules',
-  '/cheats/': 'Breadcrumb: setup guides',
-  '/forums/': 'Breadcrumb: community forum',
-  '/faq/': 'Breadcrumb: FAQ hub',
-  '/support/': 'Breadcrumb: support center',
-  '/status/': 'Breadcrumb: live status',
-  '/go/r6-siege/': 'Breadcrumb: checkout overview',
-  '/reviews/': 'Breadcrumb: player reviews',
-  '/about/': 'Breadcrumb: about page',
-  '/privacy/': 'Breadcrumb: privacy policy',
-  '/terms/': 'Breadcrumb: terms of use',
+  '/': 'Home',
+  '/products/rainbow-six-cheats/': 'Products',
+  '/cheats/': 'Cheat guides',
+  '/forums/': 'Forum',
+  '/faq/': 'FAQ',
+  '/support/': 'Support',
+  '/status/': 'Status',
+  '/go/r6-siege/': 'Checkout',
+  '/reviews/': 'Reviews',
+  '/about/': 'About',
+  '/privacy/': 'Privacy Policy',
+  '/terms/': 'Terms & Conditions',
 };
 
 export function breadcrumbAnchorLabel(name: string, path: string): string {
-  // Prefer the crumb name so two crumbs that share a path (e.g. Forum + category → /forums/) stay unique.
   const normalized = path.endsWith('/') || path === '/' ? path : `${path}/`;
   const fromPath = BREADCRUMB_PATH_LABEL[normalized] ?? BREADCRUMB_PATH_LABEL[path];
-  if (fromPath && name.toLowerCase() !== 'home' && fromPath === BREADCRUMB_PATH_LABEL['/forums/'] && name.toLowerCase() !== 'forum') {
-    return `Breadcrumb: ${name} forum topic`;
+  if (fromPath && name !== fromPath) {
+    return name;
   }
-  return fromPath ?? `Breadcrumb: ${name}`;
+  return fromPath ?? name;
 }
