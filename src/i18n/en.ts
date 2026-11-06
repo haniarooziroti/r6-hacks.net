@@ -33,7 +33,7 @@ export const en: Translations = {
   hero: {
     status: 'Rainbow Six Siege — PC modules online',
     eyebrow: 'R6 on PC',
-    titleLine1: 'R6 hacks',
+    titleLine1: 'R6 hacks: aimbot and wallhack tools for Rainbow Six Siege',
     titleLine2: 'ESP, aimbot & wallhack',
     subtitle:
       'Tactical overlays, tuned aim assist, and operator ESP that stay readable in ranked—explore modules, compare settings in the forums, and shape your PC sessions without turning the HUD into noise.',
@@ -494,16 +494,16 @@ export const en: Translations = {
           ],
         },
         {
-          heading: 'Your privacy choices',
+          heading: 'Your data protection choices',
           paragraphs: [
             'You can request deletion of support correspondence tied to your email where retention is not required for fraud prevention or legal compliance.',
-            'Privacy questions about analytics or cookies should include the browser and region you browse from so we can reproduce the issue.',
+            'Questions about analytics or cookies should include the browser and region you browse from so we can reproduce the issue.',
           ],
         },
         {
           heading: 'Contact',
           paragraphs: [
-            'For privacy questions, use the Support page. Purchase rules are in our Terms & Conditions.',
+            'For data protection questions, use the Support page. Purchase rules are in our Terms & Conditions.',
           ],
         },
       ],

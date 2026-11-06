@@ -10,7 +10,7 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'Rainbow Six Siege cheats with ESP, aimbot, and wallhack modules for PC ranked. Compare operator overlays, forum configs, and secure checkout at r6hacks.net.',
   },
   '/products/rainbow-six-cheats/': {
-    title: 'Rainbow Six Siege Cheats | Aimbot, ESP & Gadget',
+    title: 'Rainbow Six Siege Cheats | Aimbot, ESP, Gadget Modules',
     description:
       'Rainbow Six Siege cheat modules for PC: aim assist, player ESP, wallhack, gadget ESP, triggerbot, and radar. Pick a module and continue to checkout.',
   },
