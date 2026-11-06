@@ -33,6 +33,9 @@ interface Props {
 }
 
 const { logoAlt = 'Aimbot – logo' } = Astro.props;
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isHome = path === '/';
 ---
 
 <header class="pointer-events-none fixed inset-x-0 top-0 z-50">
@@ -42,7 +45,13 @@ const { logoAlt = 'Aimbot – logo' } = Astro.props;
     >
     <a href="/" class="inline-flex min-w-0 items-center gap-2 font-[family-name:var(--font-heading)] text-lg font-bold tracking-wide" aria-label={t.ui.homeAria}>
       <img src="/logo.svg" alt={logoAlt} width="32" height="32" class="shrink-0 rounded-md" />
-      <span class="truncate" aria-hidden="true">R6<span class="text-primary">Cheat</span></span>
+      <span class="truncate" aria-hidden="true">
+        {isHome ? (
+          <>r6<span class="text-primary"> hacks</span></>
+        ) : (
+          <>R6<span class="text-primary">Cheat</span></>
+        )}
+      </span>
     </a>
 
     <nav class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-3 xl:gap-4 lg:flex" aria-label="Primary">
