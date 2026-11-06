@@ -16,7 +16,7 @@ const FORUM_THREAD_SEO: Record<string, ForumThreadSeo> = {
       'Smooth aim for ranked Rainbow Six Siege—what FOV and smoothing combo stays believable in killcams without looking like a highlight reel?',
     logoAlt: 'Smooth aim – Aimbot – logo',
     sidebarHeading: 'Ranked aim: R6 Siege Cheats',
-    h1: 'Smooth aim combo for ranked Siege cheats: what smoothing level keeps killcams believable?',
+    h1: 'Ranked R6 aimbot smoothing settings',
     extraBody: [
       'Players usually start with a smaller FOV circle on ARs, then add just enough smoothing that the replay still looks hand-driven.',
       'If tracking through hard cover looks too perfect, drop FOV and smoothing about ten percent and retest in unranked before ranked queues.',
@@ -31,7 +31,7 @@ const FORUM_THREAD_SEO: Record<string, ForumThreadSeo> = {
       'Loader first-install tips: key in inbox, BattlEye running. Client first or game first on Win11? Rainbow Six Siege setup tips from players who finished.',
     logoAlt: 'Loader – Aimbot – logo',
     sidebarHeading: 'Setup: R6 Siege Cheats',
-    h1: 'First Rainbow Six Siege loader install for cheats on Win11—launch order?',
+    h1: 'First R6 loader install on Win11',
     extraBody: [
       'Most successful first launches run the install client before opening the game, import a stock ranked preset, then warm up in Terrorist Hunt before ranked.',
       'Confirm Secure Boot, TPM, HVCI, and Core Isolation match the requirements page so the tool is not blocked mid-inject.',
@@ -49,7 +49,7 @@ const FORUM_THREAD_SEO: Record<string, ForumThreadSeo> = {
       'Triggerbot delay: instant trigger got me reported in unranked twice. What sane delay for AR tap and burst fire still feels human on Rainbow Six Siege?',
     logoAlt: 'Triggerbot delay – Aimbot – logo',
     sidebarHeading: 'Triggerbot delay: R6 Siege Cheats',
-    h1: 'Triggerbot delay—how many ms feels human on R6 Siege cheats?',
+    h1: 'R6 triggerbot delay settings',
     extraBody: [
       'Many AR users land around 55–70ms with a side-mouse hold key, then raise delay slightly if killcams still look instant.',
       'Keep the hold key ADS-only when flashbangs or utility spam cause accidental shots, and never leave delay at zero for ranked.',

@@ -33,7 +33,7 @@ export const en: Translations = {
   hero: {
     status: 'Rainbow Six Siege — PC modules online',
     eyebrow: 'Rainbow Six Siege on PC',
-    titleLine1: 'R6 Hacks — Rainbow Six Siege',
+    titleLine1: 'R6 hacks',
     titleLine2: 'ESP, aimbot & wallhack',
     subtitle:
       'Tactical overlays, tuned aim assist, and operator ESP that stay readable in ranked—explore modules, compare settings in the forums, and shape your PC sessions without turning the HUD into noise.',
@@ -344,7 +344,7 @@ export const en: Translations = {
   },
   support: {
     eyebrow: 'Support',
-    title: 'R6 Siege Cheats support',
+    title: 'R6 cheats support',
     subtitle: 'Loader, checkout, and config help for PC players.',
     channels: [
       {

@@ -113,13 +113,8 @@ const displayItems = groupByTopic
 
     <Accordion type="single" collapsible class="mt-8 w-full" data-faq-list>
       {displayItems.map((faq, i) => {
-        const showTopicHeading =
-          groupByTopic && (i === 0 || displayItems[i - 1].topic !== faq.topic);
         return (
           <>
-            {showTopicHeading ? (
-              <h2 class="section-header__title mt-10 mb-1 first:mt-0">{topicLabels[faq.topic]}</h2>
-            ) : null}
             <div data-faq-topic={faq.topic}>
               <AccordionItem value={`faq-${i}`}>
                 <AccordionTrigger class="text-left">
