@@ -25,7 +25,7 @@ const productsHub = link('FAQ answer — R6 module list', ROUTES.products);
 const aimPage = link('FAQ answer — R6 aimbot page', productPath('aimbot'));
 const espPage = link('FAQ answer — player ESP page', productPath('esp'));
 const faqPage = link('FAQ answer — full FAQ index', ROUTES.faq);
-const forum = link('FAQ answer — community forum', ROUTES.forum);
+const forum = link('R6 player forum', ROUTES.forum);
 
 export const siteFaqs: SiteFaqItem[] = [
   {
@@ -119,7 +119,7 @@ export const siteFaqs: SiteFaqItem[] = [
 
 export function getLandingFaqs(): SiteFaqItem[] {
   return siteFaqs.filter((f) =>
-    ['status', 'after-buy', 'ban-risk', 'platforms', 'license-move', 'products-page'].includes(f.id),
+    ['status', 'after-buy', 'ban-risk', 'platforms', 'license-move', 'products-page', 'faq-more'].includes(f.id),
   );
 }
 

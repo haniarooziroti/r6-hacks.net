@@ -75,7 +75,6 @@ const tocItems = headings
 const postSeo = getBlogPostSeo(post.slug);
 const layoutTitle = postSeo?.title ?? pageTitle(post.title);
 const layoutDescription = postSeo?.description ?? post.desc;
-const keywordHeading = postSeo?.keywordHeading;
 
 const faqItems = (entry.data.faq ?? []).map((item, i) => ({
   id: `blog-faq-${i}`,
@@ -124,7 +123,6 @@ const faqItems = (entry.data.faq ?? []).map((item, i) => ({
               <Badge variant="outline">{post.readTime}</Badge>
             </div>
             <h1 class="blog-article__title">{post.title}</h1>
-            {keywordHeading ? <h2 class="text-lg font-semibold text-foreground">{keywordHeading}</h2> : null}
             <p class="blog-article__lead">{post.desc}</p>
             <ShareButtons url={canonicalUrl(postPath)} title={post.title} />
           </header>

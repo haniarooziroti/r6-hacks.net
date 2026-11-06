@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import { sitemapSerialize } from './src/config/sitemap.ts';
 
 const siteOrigin = (
-  process.env.PUBLIC_SITE_ORIGIN || 'https://r6-hacks-net.hania-rooziroti.workers.dev'
+  process.env.PUBLIC_SITE_ORIGIN || 'https://r6hacks.net'
 ).replace(/\/$/, '');
 
 export default defineConfig({
@@ -25,8 +25,7 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      filter: (page) =>
-        !page.includes('/404') && (!page.includes('/go/') || page.includes('/go/r6-siege')),
+      filter: (page) => !page.includes('/404') && !page.includes('/go/'),
       serialize: sitemapSerialize,
     }),
   ],

@@ -51,6 +51,7 @@ const { logoAlt = 'Aimbot – logo' } = Astro.props;
           href={link.href}
           class="nav-link inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           data-nav-link
+          aria-label={`Main navigation — ${DESKTOP_NAV_LABEL[link.label] ?? link.label}`}
           {...(link.scrollTarget ? { 'data-scroll-target': link.scrollTarget } : {})}
         >
           <Icon name={navIcons[link.label] ?? 'navFeatures'} size={16} />

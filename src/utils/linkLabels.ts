@@ -20,7 +20,7 @@ export function productHighlightsCheckoutLabel(productName: string): string {
 export const DESKTOP_NAV_LABEL: Record<string, string> = {
   Home: 'Home',
   Products: 'Products',
-  Blog: 'Blogs',
+  Blog: 'Cheat guides',
   Forum: 'Forum',
   Reviews: 'Reviews',
   FAQ: 'FAQ',
@@ -30,7 +30,7 @@ export const DESKTOP_NAV_LABEL: Record<string, string> = {
 export const MOBILE_NAV_LABEL: Record<string, string> = {
   Home: 'Home',
   Products: 'Products',
-  Blog: 'Blogs',
+  Blog: 'Cheat guides',
   Forum: 'Forum',
   Reviews: 'Reviews',
   FAQ: 'FAQ',

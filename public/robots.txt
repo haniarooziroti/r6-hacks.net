@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://r6-hacks-net.hania-rooziroti.workers.dev/sitemap.xml

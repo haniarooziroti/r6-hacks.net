@@ -42,7 +42,7 @@ const {
   jsonLd,
 } = Astro.props;
 
-const metaDescription = truncateMetaDescription(description, 152);
+const metaDescription = truncateMetaDescription(description, 158);
 const canonical = canonicalUrl(Astro.url.pathname);
 const ogImageUrl = absoluteAssetUrl(ogImage);
 const robotsContent = noindex

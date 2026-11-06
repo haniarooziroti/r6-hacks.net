@@ -5,12 +5,12 @@ export interface PageSeoEntry {
 
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
-    title: 'R6 Hacks | Aimbot, ESP & Wallhack for Rainbow Six Siege',
+    title: 'R6 Hacks: Aimbot & Wallhack Tools | r6hacks.net',
     description:
-      'R6 hacks for PC ranked: aimbot, player ESP, wallhack, gadget ESP, triggerbot, and radar. Compare modules, read forums, and checkout at r6hacks.net.',
+      'R6 hacks for PC ranked: aimbot, player ESP, wallhack, gadget ESP, triggerbot, and radar. Compare modules, read the player forum, and checkout at r6hacks.net.',
   },
   '/products/rainbow-six-cheats/': {
-    title: 'Rainbow Six Siege Cheats | Aimbot, ESP, Gadget Modules',
+    title: 'Rainbow Six Siege Cheats Modules | Aimbot, ESP, Gadget',
     description:
       'Rainbow Six Siege cheat modules on PC—aim assist, ESP, wallhack, gadget ESP, triggerbot, and 2D radar. Browse specs and continue to secure checkout.',
   },
@@ -23,11 +23,6 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
     title: 'R6 ESP & Wallhack | Boxes, Skeleton & Snaplines',
     description:
       'Player ESP for Rainbow Six Siege PC: corner boxes, skeleton, health, snaplines, and readable colors for site takes and 6v6 fights.',
-  },
-  '/products/rainbow-six-cheats/wallhack/': {
-    title: 'R6 Wallhack Module | Soft-Cover Highlights for Siege PC',
-    description:
-      'Wallhack overlays that mark defenders through soft cover with tunable opacity—paired with ESP for Rainbow Six Siege ranked on PC.',
   },
   '/products/rainbow-six-cheats/gadget-esp/': {
     title: 'R6 Gadget ESP | Drones, Claymores & Defender Traps',
@@ -45,12 +40,12 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'Compact 2D radar for Rainbow Six Siege with zoom, range caps, and colors matched to your ESP profile on PC multiplayer.',
   },
   '/cheats/': {
-    title: 'R6 Cheats Guides | Aimbot, ESP & Setup Articles',
+    title: 'R6 Cheats Guides: Aimbot & Setup Articles',
     description:
       'Setup guides for Rainbow Six Siege cheats: aimbot tuning, ESP layouts, loader steps, patch-day checks, checkout tips, and honest risk notes for PC.',
   },
   '/forums/': {
-    title: 'R6 Siege Hacks Forum | Config & Checkout Talk',
+    title: 'R6 Siege Hacks Forum: Config & Checkout Talk',
     description:
       'Player forum for Rainbow Six Siege cheats—aimbot smoothing, ESP colors, gadget ESP, loader order, billing timing, and patch-day notes.',
   },
@@ -60,7 +55,7 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       '100+ Rainbow Six Siege cheat reviews covering aimbot feel, ESP clarity, loader setup, checkout delivery, and support response on r6hacks.net.',
   },
   '/faq/': {
-    title: 'Rainbow Six Siege Cheats FAQ | Modules & Checkout',
+    title: 'Rainbow Six Siege Cheats FAQ: Modules, Checkout & Setup',
     description:
       'FAQ for R6 PC modules: requirements, checkout delivery, config saves, ranked use, loader steps, billing, and account risk before you buy.',
   },

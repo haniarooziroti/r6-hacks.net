@@ -58,8 +58,7 @@ export interface ProductPage {
 
 export const productRelatedBlogSlugs: Record<string, string[]> = {
   aimbot: ['r6-aimbot-setup', 'r6-cheat-risk', 'r6-features'],
-  esp: ['r6-esp-setup', 'r6-features', 'r6-wallhack-guide'],
-  wallhack: ['r6-wallhack-guide', 'r6-esp-setup', 'r6-features'],
+  esp: ['r6-esp-setup', 'r6-cheat-risk', 'r6-features'],
   triggerbot: ['r6-triggerbot-guide', 'r6-aimbot-setup', 'r6-features'],
   radar: ['r6-esp-setup', 'r6-patch-day', 'r6-features'],
   'gadget-esp': ['r6-gadget-esp-guide', 'r6-plans', 'r6-features'],
