@@ -9,9 +9,9 @@ export const en: Translations = {
   site: {
     name: 'R6 Siege Cheats',
     domain: 'r6hacks.net',
-    title: '[R6] Esp, Aimbot & Wallhack',
+    title: 'R6 Hacks | Aimbot, ESP & Wallhack | r6hacks.net',
     description:
-      'Rainbow Six Siege cheats with ESP, aimbot, and wallhack for PC ranked. Explore modules, read player forums, and continue to secure checkout on r6hacks.net.',
+      'Rainbow Six Siege PC cheats: aimbot, ESP, wallhack, gadget ESP, triggerbot, and radar. Module pages, setup guides, forums, and checkout at r6hacks.net.',
     discord: DISCORD_URL,
   },
   nav: [
